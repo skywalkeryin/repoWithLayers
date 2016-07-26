@@ -1,0 +1,73 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMasterPage.Master.cs" Inherits="Team_2BookOnlineOrderSystem.BookMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 90%;
+            height: 61px;
+        }
+        .auto-style2 {
+            height: 61px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+    <form id="form1" runat="server">
+    
+    <table>
+    <tr>
+        <td class="auto-style1"><h1>ABCBook</h1></td>
+        <td class="auto-style2">Welcome
+            <asp:Label ID="lblWelcome" runat="server" ></asp:Label>
+            </td>        
+        <td class="auto-style2"></td>        
+        </tr>
+    <tr>
+        <td style="width:90%">&nbsp;</td>
+        <td>          
+
+            <% if (Session["userName"] == null) { %>
+        <a href="LogIn.aspx">Login </a>
+    <% } else { %>
+        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="linkLogout">Log Out</asp:LinkButton>
+    <%} %></td>
+        <td>&nbsp;</td>        
+        </tr>
+    </table> 
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Books</a></li>
+            <li><a href="#">Order</a></li>
+            <li><a href="#">Manage Profile</a></li>
+            <li><a href="#">My History</a></li>
+            <li><a href="#">Shopping Cart</a></li>
+            <li><a href="#">Contact</a></li>
+    </ul>
+    </nav> 
+        
+        <div class="banner">
+        <img src="../Images/bestseller.jpg"/>       
+    </div>   
+        <div class="content">
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">        
+                        
+            </asp:ContentPlaceHolder>
+        </div>        
+      
+    <footer>
+     <p> &copy; 2016 ABCBoooks.com. All rights reserved.</p>                 
+    </footer>
+    </form>
+        </div>
+</body>
+</html>
