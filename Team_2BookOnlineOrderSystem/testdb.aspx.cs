@@ -21,11 +21,23 @@ namespace Team_2BookOnlineOrderSystem
 
             using (WebDL.Team2_BookDBEntities context = new WebDL.Team2_BookDBEntities())
             {
-                var data = from u in context.users where u.userID == 1 select u;
+                var data = from u in context.users where u.userID == 5 select u;
                 WebDL.user tmpUser = data.First();
                 Label1.Text = tmpUser.userEmail;
 
+                WebDL.shoppingCart sc = context.shoppingCarts.First();
+                
+
             }
+
+            
+            //using (WebDL.Team2_BookDBEntities context = new WebDL.Team2_BookDBEntities())
+            //{
+            //    WebDL.payment p = new WebDL.payment();
+            //    WebDL.user u = context.users.First();
+            //    Label1.Text = u.userAddress;
+
+            //}
 
 
         }
