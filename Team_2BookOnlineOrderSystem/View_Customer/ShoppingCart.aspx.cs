@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebDL;
 
 namespace Team_2BookOnlineOrderSystem
 {
@@ -11,7 +12,24 @@ namespace Team_2BookOnlineOrderSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Team2_BookDBEntities DB = new Team2_BookDBEntities();
+            var data = from s in DB.shoppingCarts where s.userID == 4 select s;
+            //WebDL.shoppingCart cartitem = shoppingcart.
+            List<shoppingCart> cartItems = data.ToList();
+
+
+            GridView1.DataSource = cartItems;
+            GridView1.DataBind();
 
         }
+   //     public List<shoppingCart> GetShoppingCartItems()
+     //   {
+       //     Team2_BookDBEntities DB = new Team2_BookDBEntities();
+         //   var data = from s in DB.shoppingCarts where s.userID == 4 select s;
+            //WebDL.shoppingCart cartitem = shoppingcart.
+          //  List<shoppingCart> cartItems = data.ToList();
+            //return cartItems;
+            
+        //}
     }
 }
