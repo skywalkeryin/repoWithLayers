@@ -11,7 +11,18 @@ namespace Team_2BookOnlineOrderSystem.View_Master
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userName"] != null)
+            {
+                lblWelcome.Text = Convert.ToString(Session["userName"]);
+            }
+        }
 
+        protected void linkLogout(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Session.Clear();
+            Session.RemoveAll();
+            Response.Redirect("/Home.aspx");
         }
     }
 }
