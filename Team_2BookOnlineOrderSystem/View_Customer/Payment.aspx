@@ -1,5 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View_Master/CustomerMasterPage.Master" AutoEventWireup="true" CodeBehind="Payment.aspx.cs" Inherits="Team_2BookOnlineOrderSystem.Payment" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            width: 118px;
+        }
+        .auto-style3 {
+            width: 176px;
+        }
+        .auto-style4 {
+            width: 31px;
+        }
+        .auto-style5 {
+            width: 326px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table class="nav-justified">
@@ -28,6 +45,18 @@
             <td>&nbsp;</td>
         </tr>
     </table>
+    <table class="auto-style1">
+        <tr>
+            <td class="auto-style2">Delivery Date:</td>
+            <td class="auto-style3">
+                <asp:TextBox ID="txtDeliveryDate" runat="server" TextMode="Date" Width="155px"></asp:TextBox>
+            </td>
+            <td class="auto-style4">&nbsp;</td>
+            <td class="auto-style5">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <br />
     <br />
     <table class="nav-justified">
         <tr>
@@ -53,7 +82,7 @@
     </asp:PlaceHolder>
     <br />
     <br />
-<%--    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Team2_BookDBConnectionString %>" SelectCommand="SELECT product.productName, product.productDescription, product.productPrice, shoppingCart.quantity FROM product INNER JOIN shoppingCart ON product.productID = shoppingCart.productID"></asp:SqlDataSource>
+    <%--    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Team2_BookDBConnectionString %>" SelectCommand="SELECT product.productName, product.productDescription, product.productPrice, shoppingCart.quantity FROM product INNER JOIN shoppingCart ON product.productID = shoppingCart.productID"></asp:SqlDataSource>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
         <Columns>
             <asp:BoundField DataField="productName" HeaderText="productName" SortExpression="productName" />
@@ -64,8 +93,8 @@
     </asp:GridView>--%>
     <br />
     <br />
-    Add Order Note :
-    <asp:TextBox ID="txPaymentDescrip" runat="server" TextMode="MultiLine"></asp:TextBox>
+    Add Delivery Note :
+    <asp:TextBox ID="txtDeliveryDescrip" runat="server" TextMode="MultiLine"></asp:TextBox>
     <br />
     <br />
     <table class="nav-justified">

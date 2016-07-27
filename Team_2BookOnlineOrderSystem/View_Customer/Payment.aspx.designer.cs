@@ -49,6 +49,15 @@ namespace Team_2BookOnlineOrderSystem {
         protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
         
         /// <summary>
+        /// txtDeliveryDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDeliveryDate;
+        
+        /// <summary>
         /// rblPaymentMode control.
         /// </summary>
         /// <remarks>
@@ -67,13 +76,13 @@ namespace Team_2BookOnlineOrderSystem {
         protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
         
         /// <summary>
-        /// txPaymentDescrip control.
+        /// txtDeliveryDescrip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txPaymentDescrip;
+        protected global::System.Web.UI.WebControls.TextBox txtDeliveryDescrip;
         
         /// <summary>
         /// lbSubTotalSelect control.

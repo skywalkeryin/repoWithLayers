@@ -16,10 +16,28 @@ namespace Team_2BookOnlineOrderSystem
         protected void Page_Load(object sender, EventArgs e)
         {
             loadCogiggnee();
-            PlaceHolder1.Controls.Add(createPaymentTable());
+            PlaceHolder1.Controls.Add(loadPaymentTable());
             loadPaymentList();
 
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CustomerEditProfile.aspx");
+        }
+
+        protected void btnConfirmPayment_Click(object sender, EventArgs e)
+        {
+            createOrderRecord();
+            createOrderDetailRecord();
+            createPaymentRecord();
+            createDeliveryRecord();
+            SaveSession();
+
+            Response.Redirect("ConfirmBooking.aspx");
+        }
+
+
         private void loadPaymentList()
         {
             lbSubTotal.Text = sumTotalCost().ToString();
@@ -44,41 +62,6 @@ namespace Team_2BookOnlineOrderSystem
             return sum;
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-
-
-
-        }
-
-        protected void btnConfirmPayment_Click(object sender, EventArgs e)
-        {
-            createOrderRecord();
-            createOrderDetailRecord();
-            createPaymentRecord();
-        }
-
-        private void createPaymentRecord()
-        {
-            using (WebDL.Team2_BookDBEntities bke = new WebDL.Team2_BookDBEntities())
-            {
-
-                payment addPayment = new payment();
-             
-                //addPayment.paymentID = 1;
-                addPayment.userID = 5;
-                addPayment.ordersDetailID = 2;
-                addPayment.paymentStatus = "pending";
-                addPayment.paymentAmount = 999;
-                addPayment.paymentDescription = txPaymentDescrip.Text;
-                addPayment.paymentMode = rblPaymentMode.SelectedValue.ToString();
-                addPayment.paymentDate = DateTime.Now.Date;
-
-                bke.payments.Add(addPayment);
-                bke.SaveChanges();        
-            }
-        }
-
         private void createOrderRecord()
         {
             using (WebDL.Team2_BookDBEntities bke = new Team2_BookDBEntities())
@@ -86,7 +69,7 @@ namespace Team_2BookOnlineOrderSystem
                 order order = new order();
                 order.userID = 3;
                 order.ordersDate = DateTime.Now.Date;
-                order.ordersDescription = "sad";
+                order.ordersDescription = "";
 
                 bke.orders.Add(order);
                 bke.SaveChanges();
@@ -107,9 +90,47 @@ namespace Team_2BookOnlineOrderSystem
                 bke.SaveChanges();
 
             }
-            {
+           
                 
+            
+        }
+
+        private void createPaymentRecord()
+        {
+            using (WebDL.Team2_BookDBEntities bke = new WebDL.Team2_BookDBEntities())
+            {
+
+                payment addPayment = new payment();
+                addPayment.userID = 5;
+                addPayment.ordersDetailID = 2;
+                addPayment.paymentStatus = "pending";
+                addPayment.paymentAmount = Convert.ToDouble(lbTotal.Text);
+                addPayment.paymentDescription = "";
+                addPayment.paymentMode = rblPaymentMode.SelectedValue.ToString();
+                addPayment.paymentDate = DateTime.Now.Date;
+
+                bke.payments.Add(addPayment);
+                bke.SaveChanges();
             }
+        }
+
+        private void createDeliveryRecord()
+        {
+            using (WebDL.Team2_BookDBEntities bke = new Team2_BookDBEntities())
+            {
+                delivery deli = new delivery();
+                deli.userID = 4;
+                deli.ordersID = 2;
+                deli.deliveryDate = Convert.ToDateTime(txtDeliveryDate.Text);              
+                deli.deliveryStatus = "pending";
+                deli.deliveryAddress = lbDeliveryAddress.Text;
+                deli.deliveryDescription = txtDeliveryDescrip.Text;
+                bke.deliveries.Add(deli);
+
+                bke.SaveChanges();
+
+            }
+            
         }
 
         private void oldTablePopulation()
@@ -130,7 +151,7 @@ namespace Team_2BookOnlineOrderSystem
             PlaceHolder1.Controls.Add(t);
         }
 
-        private Table createPaymentTable()
+        private Table loadPaymentTable()
         {
             using (WebDL.Team2_BookDBEntities bke = new WebDL.Team2_BookDBEntities())
             {
@@ -175,5 +196,13 @@ namespace Team_2BookOnlineOrderSystem
             }
 
         }
+
+        private void SaveSession()
+        {
+            string[] paymentInfor = new string[]{ lbCustomerName.Text, lbDeliveryAddress.Text , lbContactNumber.Text,
+            rblPaymentMode.Text,txtDeliveryDate.Text , txtDeliveryDescrip.Text, lbTotal.Text};
+            Session["paymentInfor"] = paymentInfor;  
+        }
+
     }
 }
