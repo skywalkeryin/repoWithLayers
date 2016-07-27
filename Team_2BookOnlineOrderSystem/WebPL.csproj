@@ -188,6 +188,7 @@
     <Content Include="View_Common\LogIn.aspx" />
     <Content Include="View_Customer\CreateMember.aspx" />
     <Content Include="View_Customer\forgetPassword.aspx" />
+    <Content Include="View_Customer\jkTest.aspx" />
     <Content Include="View_Customer\OrderHistory.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -363,6 +364,13 @@
     </Compile>
     <Compile Include="View_Customer\forgetPassword.aspx.designer.cs">
       <DependentUpon>forgetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View_Customer\jkTest.aspx.cs">
+      <DependentUpon>jkTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View_Customer\jkTest.aspx.designer.cs">
+      <DependentUpon>jkTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="View_Master\AdminMasterPage.Master.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>
