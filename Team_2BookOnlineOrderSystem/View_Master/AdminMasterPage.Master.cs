@@ -22,7 +22,7 @@ namespace Team_2BookOnlineOrderSystem
             Session.Abandon();
             Session.Clear();
             Session.RemoveAll();
-            Response.Redirect("/home.aspx");
+            Response.Redirect("/Home.aspx");
         }
     }
 }
