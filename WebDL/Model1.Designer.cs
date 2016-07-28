@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'Z:\Team_2BookOnlineOrderSystem\OnlineBookStore\WebDL\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'Z:\WebCA\repoWithLayers\WebDL\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

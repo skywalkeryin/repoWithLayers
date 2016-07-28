@@ -34,7 +34,7 @@ namespace Team_2BookOnlineOrderSystem.View_Customer
         {
             string selectedCategory = DropDownList1.Text;
             string bookName = txtSearch.Text;
-            lbTest.Text = selectedCategory;
+           
 
             if (string.IsNullOrEmpty(bookName))
             {
@@ -45,6 +45,37 @@ namespace Team_2BookOnlineOrderSystem.View_Customer
                 searchByBookName(bookName);
             }
 
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string productName = btn.CssClass;
+            Session["productName"] = productName;
+            Response.Redirect("BookDetail.aspx");
+
+        }
+
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string productName = btn.CssClass;
+
+            using (WebDL.Team2_BookDBEntities context = new WebDL.Team2_BookDBEntities())
+            {
+                var data = from p in context.products where p.productName == productName select p;
+                WebDL.product pToBeAdded = data.First();
+                WebDL.shoppingCart sc = new WebDL.shoppingCart();
+                sc.product = pToBeAdded;
+                sc.quantity = 1;
+                //sc.userID = Session["userID"] ;
+                sc.userID = 5;
+                sc.shoppingCartExpiredDate = DateTime.Now.Date;
+                context.shoppingCarts.Add(sc);
+                context.SaveChanges();
+                lbMsg.Text = "product: " + productName + " is added to shopping cart";
+            }
 
         }
 
@@ -81,6 +112,8 @@ namespace Team_2BookOnlineOrderSystem.View_Customer
 
             }
         }
+
+
 
 
 

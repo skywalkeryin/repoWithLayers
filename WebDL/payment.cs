@@ -22,6 +22,7 @@ namespace WebDL
         public string paymentStatus { get; set; }
         public double paymentAmount { get; set; }
         public string paymentDescription { get; set; }
+        public string paymentAccount { get; set; }
     
         public virtual ordersDetail ordersDetail { get; set; }
         public virtual user user { get; set; }

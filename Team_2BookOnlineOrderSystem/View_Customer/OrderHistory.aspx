@@ -5,9 +5,9 @@
     <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
     <br />
     <br />
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Team2_BookDBConnectionString2 %>" SelectCommand="SELECT * FROM [orders] WHERE ([userID] = @userID)">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Team2_BookDBConnectionString %>" SelectCommand="SELECT ordersID, userID, ordersDate, ordersDescription FROM orders WHERE (userID = @userID)">
         <SelectParameters>
-            <asp:Parameter DefaultValue="3" Name="userID" Type="Int32" />
+            <asp:Parameter DefaultValue="4" Name="userID" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ordersID" DataSourceID="SqlDataSource1" style="margin-right: 4px">
@@ -21,7 +21,7 @@
     </asp:GridView>
     <br />
     <br />
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Team2_BookDBConnectionString2 %>" SelectCommand="SELECT ordersDetail.ordersDetailID, ordersDetail.ordersID, ordersDetail.quantity, ordersDetail.ordersDetailDescription, product.productName FROM ordersDetail INNER JOIN product ON ordersDetail.productID = product.productID WHERE (ordersDetail.ordersID = @ordersID)">
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Team2_BookDBConnectionString %>" SelectCommand="SELECT ordersDetail.ordersDetailID, ordersDetail.ordersID, ordersDetail.quantity, ordersDetail.ordersDetailDescription, product.productName FROM ordersDetail INNER JOIN product ON ordersDetail.productID = product.productID WHERE (ordersDetail.ordersID = @ordersID)">
         <SelectParameters>
             <asp:ControlParameter ControlID="GridView1" Name="ordersID" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
