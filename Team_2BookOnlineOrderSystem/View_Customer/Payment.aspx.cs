@@ -13,10 +13,14 @@ namespace Team_2BookOnlineOrderSystem
     public partial class Payment : System.Web.UI.Page
     {
         Table t = new Table();
+        int orderID, orderDetailID;
+        int[] orderDetailList = new int[] { };
+      
         protected void Page_Load(object sender, EventArgs e)
         {
             loadCogiggnee();
-            PlaceHolder1.Controls.Add(loadPaymentTable());
+            loadPaymentTable();
+            PlaceHolder1.Controls.Add(t);
             loadPaymentList();
 
         }
@@ -29,14 +33,13 @@ namespace Team_2BookOnlineOrderSystem
         protected void btnConfirmPayment_Click(object sender, EventArgs e)
         {
             createOrderRecord();
-            createOrderDetailRecord();
-            createPaymentRecord();
+            createOrderDetailRecord(orderID);
+            createPaymentRecord(orderDetailList);
             createDeliveryRecord();
             SaveSession();
 
             Response.Redirect("ConfirmBooking.aspx");
         }
-
 
         private void loadPaymentList()
         {
@@ -62,55 +65,68 @@ namespace Team_2BookOnlineOrderSystem
             return sum;
         }
 
-        private void createOrderRecord()
+        private int  createOrderRecord()
         {
+            order order = new order();
             using (WebDL.Team2_BookDBEntities bke = new Team2_BookDBEntities())
             {
-                order order = new order();
+                
                 order.userID = 3;
                 order.ordersDate = DateTime.Now.Date;
                 order.ordersDescription = "";
-
                 bke.orders.Add(order);
                 bke.SaveChanges();
             }
+            orderID=order.ordersID;
+            return orderID;
         }
 
-        private void createOrderDetailRecord()
+        private int[] createOrderDetailRecord(int orderId)
         {
+            ordersDetail odl = new ordersDetail();
+           
             using (WebDL.Team2_BookDBEntities bke = new Team2_BookDBEntities())
             {
-                ordersDetail odl = new ordersDetail();
-                odl.ordersID = 2;
-                odl.productID = 3;
-                odl.quantity = 11000;
-                odl.ordersDetailDescription = "sadasd";
+                WebDL.shoppingCart sc = new shoppingCart();
+                var data = from car in bke.shoppingCarts where car.userID == 3 select car;
+                List<WebDL.shoppingCart> scl = data.ToList();
 
-                bke.ordersDetails.Add(odl);
-                bke.SaveChanges();
-
+                for (int i = 0; i < scl.Count; i++)
+                {
+                    odl.ordersID = orderId;
+                    odl.productID = scl[i].productID;
+                    odl.quantity = scl[i].quantity;
+                    odl.ordersDetailDescription = "";
+                    bke.ordersDetails.Add(odl);
+                    bke.SaveChanges();
+                    orderDetailList[i] = odl.ordersDetailID;
+                }                
             }
+
+            return orderDetailList;
            
                 
             
         }
 
-        private void createPaymentRecord()
+        private void createPaymentRecord(int [] orderDetailIDList)
         {
             using (WebDL.Team2_BookDBEntities bke = new WebDL.Team2_BookDBEntities())
             {
-
                 payment addPayment = new payment();
-                addPayment.userID = 5;
-                addPayment.ordersDetailID = 2;
-                addPayment.paymentStatus = "pending";
-                addPayment.paymentAmount = Convert.ToDouble(lbTotal.Text);
-                addPayment.paymentDescription = "";
-                addPayment.paymentMode = rblPaymentMode.SelectedValue.ToString();
-                addPayment.paymentDate = DateTime.Now.Date;
 
-                bke.payments.Add(addPayment);
-                bke.SaveChanges();
+                for (int i = 0; i < orderDetailIDList.Count(); i++)
+                {
+                    addPayment.userID = 5;
+                    addPayment.ordersDetailID = orderDetailIDList[i];
+                    addPayment.paymentStatus = "pending";
+                    addPayment.paymentAmount = Convert.ToDouble(lbTotal.Text);
+                    addPayment.paymentDescription = "";
+                    addPayment.paymentMode = rblPaymentMode.SelectedValue.ToString();
+                    addPayment.paymentDate = DateTime.Now.Date;
+                    bke.payments.Add(addPayment);
+                    bke.SaveChanges();                  
+                }               
             }
         }
 
@@ -176,9 +192,9 @@ namespace Team_2BookOnlineOrderSystem
                     t.Rows.Add(row);
                 }
 
-                return t;
+               
             }
-
+            return t;
         }
 
         private void loadCogiggnee()
@@ -204,5 +220,11 @@ namespace Team_2BookOnlineOrderSystem
             Session["paymentInfor"] = paymentInfor;  
         }
 
+        private void removeShoppingCart()
+        {
+
+
+
+        }
     }
 }
