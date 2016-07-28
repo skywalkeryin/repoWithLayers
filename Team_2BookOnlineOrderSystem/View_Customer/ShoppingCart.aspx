@@ -19,7 +19,7 @@
         .auto-style5 {
             position: absolute;
             left: 536px;
-            top: 698px;
+            top: 969px;
             width: 82px;
             height: 24px;
         }
@@ -46,6 +46,17 @@
         <tr>
             <td class="auto-style7">
                 <div>
+    
+                </div>
+    
+    <div>
+        <strong>
+            <asp:Label ID="LabelTotalText" runat="server" Text="Order Total: "></asp:Label>
+            <asp:Label ID="lblTotal" runat="server" EnableViewState="false"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        </strong> 
+    </div>
+                <strong>
                <asp:GridView ID="CartList" runat="server" AutoGenerateColumns="False" ShowFooter="True" GridLines="Vertical" CellPadding="4"
         ItemType="WebDL.shoppingCart" SelectMethod="GetShoppingCartItems" 
         CssClass="table table-striped table-bordered" >   
@@ -77,16 +88,6 @@
         </Columns>    
     </asp:GridView>
     
-                </div>
-    
-    <div>
-        <strong>
-            <asp:Label ID="LabelTotalText" runat="server" Text="Order Total: "></asp:Label>
-            <asp:Label ID="lblTotal" runat="server" EnableViewState="false"></asp:Label>
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        </strong> 
-    </div>
-        <strong>
         <asp:Button ID="btnRemove" runat="server" CssClass="auto-style5" Text="Remove" OnClick="btnRemove_Click" />
         </strong>
     <br />
