@@ -39,9 +39,9 @@
             <li><a href="/Home.aspx">Home</a></li>
             <li><a href="/View_Customer/BooksList.aspx">Books</a></li>
             <li><a href="/View_Customer/OrderForm.aspx">Order</a></li>
-            <li><a href="/MyHistory.aspx">My History</a></li>
+            <li><a href="/View_Customer/OrderHistory.aspx">My History</a></li>
             <li><a href="/View_Customer/CustomerEditProfile.aspx">My Account</a></li>           
-            <li><a href="/ShoppingCart.aspx">Shopping Cart</a></li>
+            <li><a href="/View_Customer/ShoppingCart.aspx">Shopping Cart</a></li>
             <li><a href="/View_Customer/ContactUs.aspx">Contact Us</a></li>
     </ul>
     </nav> 
