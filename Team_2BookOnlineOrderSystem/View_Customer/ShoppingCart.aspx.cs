@@ -103,7 +103,7 @@ namespace Team_2BookOnlineOrderSystem
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Payment.aspx");
         }
 
 

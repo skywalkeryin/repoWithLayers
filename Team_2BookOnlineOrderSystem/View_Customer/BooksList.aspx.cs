@@ -64,13 +64,16 @@ namespace Team_2BookOnlineOrderSystem.View_Customer
 
             using (WebDL.Team2_BookDBEntities context = new WebDL.Team2_BookDBEntities())
             {
+                string userNameFromSession = Session["userName"].ToString();
                 var data = from p in context.products where p.productName == productName select p;
+                var data2 = from u in context.users where u.userName == userNameFromSession select u;
+
+                WebDL.user userGetFromSession = data2.First();
                 WebDL.product pToBeAdded = data.First();
                 WebDL.shoppingCart sc = new WebDL.shoppingCart();
                 sc.product = pToBeAdded;
                 sc.quantity = 1;
-                //sc.userID = Session["userID"] ;
-                sc.userID = 5;
+                sc.userID = userGetFromSession.userID;
                 sc.shoppingCartExpiredDate = DateTime.Now.Date;
                 context.shoppingCarts.Add(sc);
                 context.SaveChanges();

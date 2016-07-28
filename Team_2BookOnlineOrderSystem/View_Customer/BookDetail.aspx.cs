@@ -13,15 +13,15 @@ namespace Team_2BookOnlineOrderSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["userID"] = "Preethi";
-            Session["productName"] = "How to Deal with Anger";
+            //Session["userID"] = "Preethi";
+            //Session["productName"] = "How to Deal with Anger";
             Team2_BookDBEntities DB = new Team2_BookDBEntities();
             ShoppingCartActions Action = new ShoppingCartActions();
            
             string pName = Action.getProductName();
             var data1 = from b in DB.products where b.productName ==pName  select b;
-            
-            WebDL.product book = data1.First();
+
+            WebDL.product book = data1.FirstOrDefault();
             var data2 = from c in DB.categories  where c.categoryID == book.categoryID select c;
             WebDL.category cat = data2.First();
             imgCover.ImageUrl = book.productImage;
