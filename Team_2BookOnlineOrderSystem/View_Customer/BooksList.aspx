@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View_Master/CustomerMasterPage.Master" AutoEventWireup="true" CodeBehind="BooksList.aspx.cs" Inherits="Team_2BookOnlineOrderSystem.View_Customer.BooksList"  EnableEventValidation="false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            height: 23px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -44,23 +49,24 @@
                        <tr>
                            <td rowspan="4">                            
                              
-                              <%-- <asp:Image ID="Image1" ImageUrl='<%#Bind("image","/Images/{0}") %>' runat="server" /> --%>   
-                                 <asp:Image ID="Images"  runat="server" />                            
+                               <%--<asp:Image ID="Image1" ImageUrl='<%#Bind("image","/Images/{0}") %>' runat="server" /> --%>   
+                               <asp:Image ID="Image2" ImageUrl='<%# Eval("productImage") %>' runat="server" Height="181px" Width="141px" /> 
+                                 <%--<asp:Image ID="Images"  runat="server" />--%>                            
                            </td>
-                           <td>Name:</td>
+                           <td>&nbsp;</td>
                            <td>
                                <asp:Label ID="lblProductName" runat="server" Text='<%# Eval("productName") %>'></asp:Label>
                                
                            </td>
                        </tr>
                        <tr>
-                           <td>Product Code:</td>
-                           <td>
+                           <td class="auto-style1">&nbsp;</td>
+                           <td class="auto-style1">
                                <asp:Label ID="lblProductCode" runat="server" Text='<%# Eval("productCode") %>'></asp:Label>
                            </td>
                        </tr>
                        <tr>
-                           <td>Price: </td>
+                           <td>&nbsp;</td>
                            <td>
                                <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("productPrice") %>'></asp:Label>                           
                            </td>
