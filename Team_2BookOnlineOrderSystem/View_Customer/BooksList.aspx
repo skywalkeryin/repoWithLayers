@@ -4,8 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
      <h1 class="title">Book List</h1>
-<p class="title">
-    <asp:Label ID="lbTest" runat="server" Text="Label"></asp:Label>
+<p class="title" style="margin-left: 80px">
+     <asp:Label ID="lbMsg" runat="server" ForeColor="Red"></asp:Label>
 </p>
      <table class="auto-style3">
          <tr>
@@ -31,7 +31,6 @@
 
        <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     <asp:Label ID="lbMsg" runat="server" Text="Label"></asp:Label>
      <br />
 
 

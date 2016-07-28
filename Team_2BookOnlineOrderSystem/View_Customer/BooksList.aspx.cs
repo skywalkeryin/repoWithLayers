@@ -34,7 +34,7 @@ namespace Team_2BookOnlineOrderSystem.View_Customer
         {
             string selectedCategory = DropDownList1.Text;
             string bookName = txtSearch.Text;
-            lbTest.Text = selectedCategory;
+           
 
             if (string.IsNullOrEmpty(bookName))
             {
@@ -74,6 +74,7 @@ namespace Team_2BookOnlineOrderSystem.View_Customer
                 sc.shoppingCartExpiredDate = DateTime.Now.Date;
                 context.shoppingCarts.Add(sc);
                 context.SaveChanges();
+                lbMsg.Text = "product: " + productName + " is added to shopping cart";
             }
 
         }
