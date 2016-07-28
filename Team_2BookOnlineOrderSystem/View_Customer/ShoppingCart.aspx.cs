@@ -22,6 +22,11 @@ namespace Team_2BookOnlineOrderSystem
             GridView1.DataBind();
 
         }
+
+        protected void btnConfirm_Click(object sender, EventArgs e)
+        {
+
+        }
    //     public List<shoppingCart> GetShoppingCartItems()
      //   {
        //     Team2_BookDBEntities DB = new Team2_BookDBEntities();

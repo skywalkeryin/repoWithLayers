@@ -2,29 +2,80 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <div class="auto-style1">
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="deliveryID" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" style="margin-right: 56px">
-        <AlternatingRowStyle BackColor="White" />
-        <Columns>
-            <asp:BoundField DataField="deliveryID" HeaderText="Delivery ID" InsertVisible="False" ReadOnly="True" SortExpression="deliveryID" />
-            <asp:BoundField DataField="userID" HeaderText="User Name" SortExpression="userID" />
-            <asp:BoundField DataField="ordersID" HeaderText="Order ID" SortExpression="ordersID" />
-            <asp:BoundField DataField="deliveryDate" HeaderText="Delivery Date" SortExpression="deliveryDate" />
-            <asp:BoundField DataField="deliveryStatus" HeaderText="Delivery Status" SortExpression="deliveryStatus" />
-            <asp:BoundField DataField="deliveryAddress" HeaderText="Delivery Address" SortExpression="deliveryAddress" />
-            <asp:BoundField DataField="deliveryDescription" HeaderText="Delivery Description" SortExpression="deliveryDescription" />
-        </Columns>
-        <EditRowStyle BackColor="#7C6F57" />
-        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#E3EAEB" />
-        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#F8FAFA" />
-        <SortedAscendingHeaderStyle BackColor="#246B61" />
-        <SortedDescendingCellStyle BackColor="#D4DFE1" />
-        <SortedDescendingHeaderStyle BackColor="#15524A" />
-        </asp:GridView>
-        </div>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Team2_BookDBConnectionString %>" SelectCommand="SELECT * FROM [delivery]"></asp:SqlDataSource>
+ 
+    <asp:Label ID="Label1" runat="server" ><h1>Delivery List</h1></asp:Label>    
+      <div class="contentDeliverList">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="deliveryId"
+ OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit"
+OnRowUpdating="OnRowUpdating"  onrowdatabound="DeliveryGridView_RowDataBound" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" Height="161px" style="margin-bottom: 0px" Width="1593px">
+            <Columns>
+                <asp:TemplateField HeaderText="DeliveryId" ItemStyle-Width="150">
+                    <ItemTemplate>
+                        <asp:Label ID="lblDeliveryId" runat="server" Text='<%# Bind("DeliveryId") %>'></asp:Label>
+                    </ItemTemplate>                  
+
+<ItemStyle Width="150px"></ItemStyle>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="OrderId" ItemStyle-Width="150" Visible="false">
+                    <ItemTemplate>
+                        <asp:Label ID="lblOrderId" runat="server" Text='<%# Bind("OrderId") %>'></asp:Label>
+                    </ItemTemplate>                   
+
+<ItemStyle Width="150px"></ItemStyle>
+                </asp:TemplateField>
+                    <asp:TemplateField HeaderText="UserId" ItemStyle-Width="150" Visible="false">
+                    <ItemTemplate>
+                        <asp:Label ID="lblUserId" runat="server" Text='<%# Bind("UserId") %>'></asp:Label>
+                    </ItemTemplate>                  
+
+<ItemStyle Width="150px"></ItemStyle>
+                </asp:TemplateField>
+                 <asp:TemplateField HeaderText="UserName" ItemStyle-Width="150">
+                    <ItemTemplate>
+                        <asp:Label ID="lblUserName" runat="server" Text='<%# Bind("UserName") %>'></asp:Label>
+                    </ItemTemplate>                   
+
+<ItemStyle Width="150px"></ItemStyle>
+                </asp:TemplateField>
+                    <asp:TemplateField HeaderText="DeliveryAddress" ItemStyle-Width="150">
+                    <ItemTemplate>
+                        <asp:Label ID="lblDeliveryAddress" runat="server" Text='<%# Bind("DeliveryAddress") %>'></asp:Label>
+                    </ItemTemplate>                   
+
+<ItemStyle Width="150px"></ItemStyle>
+                </asp:TemplateField>
+                    <asp:TemplateField HeaderText="DeliveryDate" ItemStyle-Width="150">
+                    <ItemTemplate>
+                        <asp:Label ID="lblDeliveryDate" runat="server" Text='<%# Bind("DeliveryDate", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                    </ItemTemplate>                   
+
+<ItemStyle Width="150px"></ItemStyle>
+                </asp:TemplateField>
+                  <asp:TemplateField HeaderText="DeliveryStatus" ItemStyle-Width="150">
+                    <ItemTemplate>
+                        <asp:Label ID="lblDeliveryStatus" runat="server" Text='<%# Eval("DeliveryStatus") %>'></asp:Label>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtDeliveryStatus" runat="server" Text='<%# Eval("DeliveryStatus") %>'></asp:TextBox>
+                    </EditItemTemplate>
+
+<ItemStyle Width="150px"></ItemStyle>
+                </asp:TemplateField>
+                <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="false" ItemStyle-Width="150">
+<ItemStyle Width="150px"></ItemStyle>
+                </asp:CommandField>
+            </Columns>
+            <FooterStyle BackColor="White" ForeColor="#333333" />
+            <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="White" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F7F7F7" />
+            <SortedAscendingHeaderStyle BackColor="#487575" />
+            <SortedDescendingCellStyle BackColor="#E5E5E5" />
+            <SortedDescendingHeaderStyle BackColor="#275353" />
+            </asp:GridView>
+    </div>
+
 </asp:Content>
+

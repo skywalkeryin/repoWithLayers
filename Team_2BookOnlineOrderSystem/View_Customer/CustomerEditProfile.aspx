@@ -74,5 +74,5 @@
         </tr>
     </table>
     <asp:Button ID="btnCreate" runat="server" Text="Edit" OnClick="btnEdit_Click" />
-    <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+    <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
 </asp:Content>
