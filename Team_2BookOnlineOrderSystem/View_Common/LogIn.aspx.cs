@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Team_2BookOnlineOrderSystem.Models;
+using WebDL;
 
-namespace Team_2BookOnlineOrderSystem
+namespace Team_2BookOnlineOrderSystem.View_Common
 {
     public partial class LogIn : System.Web.UI.Page
     {
@@ -17,27 +17,34 @@ namespace Team_2BookOnlineOrderSystem
 
         protected void btnLogIn_Click(object sender, EventArgs e)
         {
-            //using (Team2_BookDBEntities bookEnt = new Team2_BookDBEntities())
-            //{
-            //    var book = bookEnt.users.FirstOrDefault(m => m.userEmail == txtEmail.Text && m.userPassword == txtPassword.Text);
-            //    if (book != null)
-            //    {
-            //        if (book.roleID == 1)
-            //        {
-            //            Session["userName"] = book.userName;
-            //            Response.Redirect("/Home.aspx");
-            //        }
-            //    }
-
-            //    else
-            //    {
-            //        lblError.Text = "User Name or Password is incorrect.";
-            //    }
-            //}
+            using (Team2_BookDBEntities bookEnt = new Team2_BookDBEntities())
+            {
+                var userLogIn = bookEnt.users.FirstOrDefault(m => m.userEmail == txtEmail.Text && m.userPassword == txtPassword.Text);
+                if (userLogIn != null)
+                {
+                    if (userLogIn.roleID == 1)
+                    {
+                        Session["userName"] = userLogIn.userName;
+                        Response.Redirect("/AdminHome.aspx");
+                    }
+                    else
+                    {
+                        Session["userName"] = userLogIn.userName;
+                        Response.Redirect("/Home.aspx");
+                    }
+                }
+                else
+                {
+                    lblError.Text = "User Name or Password is incorrect.";
+                }
+            }
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
+            Session.Abandon();
+            Session.Clear();
+            Session.RemoveAll();
             Response.Redirect("/Home.aspx");
         }
     }

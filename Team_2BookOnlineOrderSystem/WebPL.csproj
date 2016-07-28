@@ -159,6 +159,7 @@
     <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Images\calendar.png" />
+    <Content Include="Home.aspx" />
     <Content Include="Service References\ServiceReference1\Team_2BookOnlineOrderSystem.ServiceReference1.HelloWorldResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -174,20 +175,22 @@
     <Content Include="View_Admin\EditBookProfile.aspx" />
     <Content Include="View_Admin\EditProfile.aspx" />
     <Content Include="View_Admin\ViewAllBooks.aspx" />
+    <Content Include="View_Common\LogIn.aspx" />
     <Content Include="View_Customer\BookDetail.aspx" />
+    <Content Include="View_Customer\BooksList.aspx" />
     <Content Include="View_Customer\ConfirmBooking.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
+    <Content Include="View_Customer\ContactUs.aspx" />
     <Content Include="View_Customer\CustomerEditProfile.aspx" />
     <Content Include="View_Admin\DeliveryTracking.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Home.aspx" />
     <Content Include="Images\bestseller.jpg" />
-    <Content Include="View_Common\LogIn.aspx" />
     <Content Include="View_Customer\CreateMember.aspx" />
     <Content Include="View_Customer\forgetPassword.aspx" />
+    <Content Include="View_Customer\jkTest.aspx" />
     <Content Include="View_Customer\OrderHistory.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -312,8 +315,21 @@
     <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
       <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
     </Compile>
+
+
+
+
     <Compile Include="logics\ShoppingCartActions.cs" />
+
+
     <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -326,6 +342,7 @@
     <Compile Include="View_Admin\AddNewBook.aspx.designer.cs">
       <DependentUpon>AddNewBook.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View_Admin\DeliveryList.cs" />
     <Compile Include="View_Admin\EditBookProfile.aspx.cs">
       <DependentUpon>EditBookProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -351,6 +368,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="View_Common\LogIn.aspx.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View_Common\LogIn.aspx.designer.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View_Customer\BookDetail.aspx.cs">
       <DependentUpon>BookDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -364,6 +388,27 @@
     </Compile>
     <Compile Include="View_Customer\forgetPassword.aspx.designer.cs">
       <DependentUpon>forgetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View_Customer\jkTest.aspx.cs">
+      <DependentUpon>jkTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View_Customer\jkTest.aspx.designer.cs">
+      <DependentUpon>jkTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View_Customer\BooksList.aspx.cs">
+      <DependentUpon>BooksList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View_Customer\BooksList.aspx.designer.cs">
+      <DependentUpon>BooksList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View_Customer\ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View_Customer\ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="View_Master\AdminMasterPage.Master.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>
@@ -395,20 +440,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View_Common\LogIn.aspx.cs">
-      <DependentUpon>LogIn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="View_Common\LogIn.aspx.designer.cs">
-      <DependentUpon>LogIn.aspx</DependentUpon>
     </Compile>
     <Compile Include="View_Customer\CreateMember.aspx.cs">
       <DependentUpon>CreateMember.aspx</DependentUpon>

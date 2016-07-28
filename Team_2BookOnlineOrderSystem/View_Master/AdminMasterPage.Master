@@ -30,12 +30,12 @@
             </td>        
         <td class="auto-style2"></td>        
         </tr>
-    <tr>
+     <tr>
         <td style="width:90%">&nbsp;</td>
         <td>          
 
             <% if (Session["userName"] == null) { %>
-        <a href="LogIn.aspx">Login </a>
+        <a href="/View_Common/LogIn.aspx">Login/Create Member</a>
     <% } else { %>
         <asp:LinkButton ID="LinkButton1" runat="server" OnClick="linkLogout">Log Out</asp:LinkButton>
     <%} %></td>
@@ -43,24 +43,22 @@
         </tr>
     </table> 
 
-    <nav>
+   <nav>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Books</a></li>
-            <li><a href="#">Order</a></li>
-            <li><a href="#">Manage Profile</a></li>
-            <li><a href="#">My History</a></li>
-            <li><a href="#">Shopping Cart</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/AdminHome.aspx">Home</a></li>
+            <li><a href="/View_Customer/BooksList.aspx">Books</a></li>             
+            <li><a href="/View_Admin/AddNewBook.aspx">Add New Books</a></li> 
+            <li><a href="/View_Admin/EditBookProfile.aspx">Update Books</a></li> 
+            <li><a href="/View_Admin/EditProfile.aspx">My Account</a></li>           
+            <li><a href="/View_Admin/DeliveryTracking.aspx">Manage Delivery</a></li>           
     </ul>
     </nav> 
         
         <div class="banner">
-        <img src="../Images/bestseller.jpg"/>       
+        <img src="../Images/bestseller.jpg" />       
     </div>   
         <div class="content">
-           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">        
-                        
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"> 
             </asp:ContentPlaceHolder>
         </div>        
       

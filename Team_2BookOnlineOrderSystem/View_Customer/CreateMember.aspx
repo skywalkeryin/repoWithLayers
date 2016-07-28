@@ -7,60 +7,71 @@
         .auto-style2 {
             width: 286px;
         }
+        .auto-style3 {
+            width: 234px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <table class="auto-style1">
+     
+    <table class="create-member">
         <tr>
-            <td class="auto-style2"> <h3><b>Create New Account</b></h3></td>
-            <td>&nbsp;</td>
+            <td class="auto-style3">Create New Member</td>
+            <td class="auto-style5">&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style2">Member Name:</td>
-            <td>
-                <asp:TextBox ID="txtName" runat="server" Width="165px"></asp:TextBox>
+            <td class="auto-style3">
+                <asp:Label ID="Label1" runat="server" Text="Member Name"></asp:Label>
+            </td>
+            <td class="auto-style5">
+                <asp:TextBox ID="txtUserName" runat="server" Width="200px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">Password:</td>
-            <td class="auto-style4">
-                <asp:TextBox ID="txtPassword" runat="server" Width="165px"></asp:TextBox>
+            <td class="auto-style3">Password</td>
+            <td class="auto-style5">
+                <asp:TextBox ID="txtPassword"  runat="server" Width="200px" height="22px" TextMode="Password"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">Confirm Password:</td>
-            <td>
-                <asp:TextBox ID="txtConfirmPassword" runat="server" Width="165px"></asp:TextBox>
+            <td class="auto-style3">
+                <asp:Label ID="Label2" runat="server" Text="Confirm Password"></asp:Label>
+            </td>
+            <td class="auto-style5">
+                <asp:TextBox ID="txtConfirmPassword" runat="server" Width="200px" height="22px" TextMode="Password"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">Email:</td>
-            <td>
-                <asp:TextBox ID="txtEmail" runat="server" Width="165px"></asp:TextBox>
+            <td class="auto-style3">
+                <asp:Label ID="Label3" runat="server" Text="Email"></asp:Label>
+            </td>
+            <td class="auto-style5">
+                <asp:TextBox ID="txtEmail" runat="server" Width="200px" height="22px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">Phone No:</td>
-            <td class="auto-style4">
-                <asp:TextBox ID="txtPhoneNo" runat="server" Width="165px"></asp:TextBox>
+            <td class="auto-style3">Phone No</td>
+            <td class="auto-style5">
+                <asp:TextBox ID="txtPhoneNo" runat="server" Width="200px" height="22px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">Address:</td>
-            <td>
-                <asp:TextBox ID="txtAddress" runat="server" Width="165px"></asp:TextBox>
+            <td class="auto-style3">
+                <asp:Label ID="Label4" runat="server" Text="Address"></asp:Label>
+            </td>
+            <td class="auto-style5">
+                <asp:TextBox ID="txtAddress" runat="server" Width="200px" height="22px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="auto-style2">Description</td>
-            <td>
-                <asp:TextBox ID="txtDescription" runat="server" Width="165px"></asp:TextBox>
+            <td class="auto-style3">
+                <asp:Label ID="Label5" runat="server" Text="Description"></asp:Label>
             </td>
-           
+            <td class="auto-style5">
+                <asp:TextBox ID="txtDesc" runat="server" Width="200px" height="22px" TextMode="MultiLine"></asp:TextBox>
+            </td>
         </tr>
     </table>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="btnCreate" runat="server" Text="Create" />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:Button ID="btnCreate" runat="server" Text="Create" OnClick="btnCreate_Click" />
     <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
 </asp:Content>

@@ -93,12 +93,22 @@ namespace Team_2BookOnlineOrderSystem
         }
 
 
+
         protected void btnRemove_Click(object sender, EventArgs e)
         {
 
             UpdateCartItems();
-            
+
         }
+
+        protected void btnConfirm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+            
+        
 
 
 

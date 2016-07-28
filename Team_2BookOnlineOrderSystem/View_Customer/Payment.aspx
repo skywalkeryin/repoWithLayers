@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View_Master/CustomerMasterPage.Master" AutoEventWireup="true" CodeBehind="Payment.aspx.cs" Inherits="Team_2BookOnlineOrderSystem.Payment" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View_Master/CustomerMasterPage.Master" AutoEventWireup="true" CodeBehind="Payment.aspx.cs" Inherits="Team_2BookOnlineOrderSystem.Payment" Theme="Theme1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style1 {

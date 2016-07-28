@@ -5,17 +5,60 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+     <link href="~/Content/style.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div>testing customer master page included</div>
+    <div id="wrapper">
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    
+    <table>
+    <tr>
+        <td class="auto-style1"><h1>ABCBook</h1></td>
+        <td class="auto-style2">Welcome
+            <asp:Label ID="lblWelcome" runat="server" ></asp:Label>
+            </td>        
+        <td class="auto-style2"></td>        
+        </tr>
+    <tr>
+        <td style="width:90%">&nbsp;</td>
+        <td>          
+
+            <% if (Session["userName"] == null) { %>
+        <a href="/View_Common/LogIn.aspx">Login/Create Member</a>
+    <% } else { %>
+        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="linkLogout">Log Out</asp:LinkButton>
+    <%} %></td>
+        <td>&nbsp;</td>        
+        </tr>
+    </table> 
+
+    <nav>
+        <ul>
+            <li><a href="/Home.aspx">Home</a></li>
+            <li><a href="/View_Customer/BooksList.aspx">Books</a></li>
+            <li><a href="/View_Customer/OrderForm.aspx">Order</a></li>
+            <li><a href="/MyHistory.aspx">My History</a></li>
+            <li><a href="/View_Customer/CustomerEditProfile.aspx">My Account</a></li>           
+            <li><a href="/ShoppingCart.aspx">Shopping Cart</a></li>
+            <li><a href="/View_Customer/ContactUs.aspx">Contact Us</a></li>
+    </ul>
+    </nav> 
         
-        </asp:ContentPlaceHolder>
-    </div>
+        <div class="banner">
+        <img src="../Images/bestseller.jpg"/>       
+    </div>   
+        <div class="content">
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">        
+                        
+            </asp:ContentPlaceHolder>
+        </div>        
+      
+    <footer>
+     <p> &copy; 2016 ABCBoooks.com. All rights reserved.</p>                 
+    </footer>
     </form>
+        </div>
 </body>
 </html>
