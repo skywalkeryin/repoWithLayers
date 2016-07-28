@@ -26,8 +26,7 @@ namespace Team_2BookOnlineOrderSystem
                     txtPhoneNo.Text = Convert.ToString(editUser.userPhone);
                     txtAddress.Text = editUser.userAddress;
                     txtDesc.Text = editUser.userDescription;
-                }
-                Response.Redirect("/Home.aspx");
+                }              
             }
         }
 
@@ -53,6 +52,11 @@ namespace Team_2BookOnlineOrderSystem
                 }
                 Response.Redirect("/Home.aspx");
             }
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Home.aspx");
         }
     }
 }

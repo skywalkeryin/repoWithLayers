@@ -96,7 +96,7 @@
         </tr>
         <tr>
             <td class="auto-style6">
-                <asp:Button ID="btnConfirm" runat="server" Text="Confirm" Width="72px" />
+                <asp:Button ID="btnConfirm" runat="server" Text="Confirm" Width="72px" OnClick="btnConfirm_Click" />
             </td>
         </tr>
         <tr>

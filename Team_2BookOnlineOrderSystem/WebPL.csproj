@@ -158,11 +158,8 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
-
     <Content Include="Images\calendar.png" />
-
     <Content Include="Home.aspx" />
-
     <Content Include="Service References\ServiceReference1\Team_2BookOnlineOrderSystem.ServiceReference1.HelloWorldResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -321,10 +318,11 @@
 
 
 
+
     <Compile Include="logics\ShoppingCartActions.cs" />
 
-    <Compile Include="Models\CartItem.cs" />
 
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -332,7 +330,6 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -345,6 +342,7 @@
     <Compile Include="View_Admin\AddNewBook.aspx.designer.cs">
       <DependentUpon>AddNewBook.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View_Admin\DeliveryList.cs" />
     <Compile Include="View_Admin\EditBookProfile.aspx.cs">
       <DependentUpon>EditBookProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -384,7 +382,6 @@
     <Compile Include="View_Customer\BookDetail.aspx.designer.cs">
       <DependentUpon>BookDetail.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="View_Customer\forgetPassword.aspx.cs">
       <DependentUpon>forgetPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -412,7 +409,6 @@
     </Compile>
     <Compile Include="View_Customer\ContactUs.aspx.designer.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
-
     </Compile>
     <Compile Include="View_Master\AdminMasterPage.Master.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>

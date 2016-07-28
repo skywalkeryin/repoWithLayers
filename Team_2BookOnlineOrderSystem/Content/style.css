@@ -24,7 +24,7 @@ nav li a{
     padding: 0 15px;
 }
 .content{
-    height: 400px;
+    min-height : 400px;
 }
 footer{
     text-align: center;

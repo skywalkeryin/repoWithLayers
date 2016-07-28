@@ -12,11 +12,6 @@ namespace Team_2BookOnlineOrderSystem.View_Customer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Team2_BookDBEntities bookList = new Team2_BookDBEntities();
-            // List<category> categoryList = bookList.GetCategories().ToList<category>();
-            //GridView1.DataSource = categoryList;
-            //GridView1.DataBind();
-
             using (Team2_BookDBEntities db = new Team2_BookDBEntities())
             {
                 var results = (from p in db.products

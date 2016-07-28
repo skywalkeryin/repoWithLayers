@@ -28,8 +28,7 @@
                 <asp:TextBox ID="txtUserName" runat="server" Width="200px"></asp:TextBox>
             </td>
             <td class="auto-style3">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Enter Member Name"></asp:RequiredFieldValidator>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style4">Password</td>
@@ -37,8 +36,7 @@
                 <asp:TextBox ID="txtPassword"  runat="server" Width="200px" height="22px" TextMode="Password"></asp:TextBox>
             </td>
             <td class="auto-style3">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Enter Password"></asp:RequiredFieldValidator>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style4">
@@ -48,8 +46,7 @@
                 <asp:TextBox ID="txtConfirmPassword" runat="server" Width="200px" height="22px" TextMode="Password"></asp:TextBox>
             </td>
             <td class="auto-style3">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Enter Confirm Password"></asp:RequiredFieldValidator>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style4">
@@ -59,8 +56,7 @@
                 <asp:TextBox ID="txtEmail" runat="server" Width="200px" height="22px"></asp:TextBox>
             </td>
             <td class="auto-style3">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Enter Email"></asp:RequiredFieldValidator>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style4">Phone No</td>
@@ -68,8 +64,7 @@
                 <asp:TextBox ID="txtPhoneNo" runat="server" Width="200px" height="22px"></asp:TextBox>
             </td>
             <td class="auto-style3">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Enter Phone No"></asp:RequiredFieldValidator>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style4">
@@ -93,5 +88,5 @@
         </tr>
     </table>
     <asp:Button ID="btnCreate" runat="server" Text="Edit" OnClick="btnEdit_Click" />
-    <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
+    <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
 </asp:Content>

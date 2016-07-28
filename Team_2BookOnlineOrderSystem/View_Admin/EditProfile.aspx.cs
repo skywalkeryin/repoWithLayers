@@ -52,5 +52,10 @@ namespace Team_2BookOnlineOrderSystem
                 Response.Redirect("/AdminHome.aspx");
             }
         }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/AdminHome.aspx");
+        }
     }
 }
