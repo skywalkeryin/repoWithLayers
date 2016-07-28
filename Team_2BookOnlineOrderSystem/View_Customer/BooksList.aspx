@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View_Master/CustomerMasterPage.Master" AutoEventWireup="true" CodeBehind="BooksList.aspx.cs" Inherits="Team_2BookOnlineOrderSystem.View_Customer.BooksList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View_Master/CustomerMasterPage.Master" AutoEventWireup="true" CodeBehind="BooksList.aspx.cs" Inherits="Team_2BookOnlineOrderSystem.View_Customer.BooksList"  EnableEventValidation="false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -20,6 +20,7 @@
              </td>
              <td class="auto-style6">
                  <asp:TextBox ID="txtSearch" runat="server" Width="153px"></asp:TextBox>
+                
              </td>
              <td>
                  <asp:Button ID="Button1" runat="server" Text="Search" Width="93px" Height="26px" OnClick="Button1_Click" />
@@ -66,8 +67,9 @@
                            </td>
                        </tr>
                        <tr>
-                           <td colspan="2">                              
-                                <asp:Button ID="btnAddToCart" runat="server" Text="Add To Cart"  />
+                           <td colspan="2"> 
+                               <asp:Button ID="Button2" Text="Detail" runat="server" Width="93px" Height="26px" OnClick="Button2_Click" CssClass='<%# Eval("productName") %>' />                             
+                                <asp:Button ID="btnAddToCart" runat="server" Text="Add To Cart" CssClass='<%# Eval("productName") %>' OnClick="btnAddToCart_Click"  />
 
                            </td>
                        </tr>
