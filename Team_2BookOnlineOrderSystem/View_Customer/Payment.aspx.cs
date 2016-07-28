@@ -39,11 +39,11 @@ namespace Team_2BookOnlineOrderSystem
             createOrderRecord();
             createOrderDetailRecord(orderID);
             Label3.Text = odIDList[0].ToString();
-            createPaymentRecord(odIDList);
-          
-     //       createDeliveryRecord();
-     //       SaveSession();
-       //     Response.Redirect("ConfirmBooking.aspx");
+            createPaymentRecord(odIDList);            
+            createDeliveryRecord();
+            removeShoppingCart();
+            SaveSession();
+           Response.Redirect("ConfirmBooking.aspx");
         }
 
         private void loadPaymentList()
@@ -58,7 +58,7 @@ namespace Team_2BookOnlineOrderSystem
             int price=0;
             int quantity=0;
             int sum = 0;
-            for (int i = 0; i <t.Rows.Count; i++)
+            for (int i = 1; i <t.Rows.Count; i++)
             {
                 
                 price = Convert.ToInt32(t.Rows[i].Cells[2].Text);
@@ -107,7 +107,8 @@ namespace Team_2BookOnlineOrderSystem
 
                    // var odId = (from r in bke.ordersDetails select r).Last();
                     //int lastID = bke.ordersDetails.AsEnumerable().Last().ordersDetailID;
-                    odIDList[i] = odl.ordersDetailID;
+                    //odIDList[i] = odl.ordersDetailID;
+                    odIDList.Add(odl.ordersDetailID);
                 }                
             }
 
@@ -165,6 +166,21 @@ namespace Team_2BookOnlineOrderSystem
             {
                 var data = from sc in bke.shoppingCarts where sc.userID == userId select sc;
                 List<shoppingCart> scs = data.ToList();
+                TableRow headerRow = new TableRow();
+                TableCell Name = new TableCell();
+                TableCell Desc = new TableCell(); 
+               TableCell price = new TableCell();
+               TableCell Quantiy = new TableCell();
+
+                Name.Text = "Name";
+                Desc.Text = "Description";
+                price.Text = "Price";
+                Quantiy.Text = "Quantiy";
+                headerRow.Cells.Add(Name);
+                headerRow.Cells.Add(Desc);
+                headerRow.Cells.Add(price);
+                headerRow.Cells.Add(Quantiy);
+                t.Rows.Add(headerRow);
 
                 foreach (shoppingCart s in scs)
                 {
@@ -220,8 +236,7 @@ namespace Team_2BookOnlineOrderSystem
                 if (sc!=null)
                 {
                     bke.shoppingCarts.RemoveRange(sc);
-                    bke.SaveChanges();
-                   
+                    bke.SaveChanges();                
                 }
             }
 

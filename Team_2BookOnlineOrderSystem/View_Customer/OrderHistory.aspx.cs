@@ -12,8 +12,7 @@ namespace Team_2BookOnlineOrderSystem
         Table t = new Table();
         protected void Page_Load(object sender, EventArgs e)
         {
-            loadOrderTable(3);
-            PlaceHolder1.Controls.Add(t);
+
         }
 
 
