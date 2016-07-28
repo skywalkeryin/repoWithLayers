@@ -151,6 +151,7 @@
                             <asp:Label ID="lbDescription" runat="server" Text="Description" CssClass="auto-style19" ></asp:Label>
                             <br />
                             <br />
+                            <asp:Label ID="Label2" runat="server" Text="Description"></asp:Label>
                             <br />
                             <br />
                             <br />
@@ -185,8 +186,8 @@
                             <asp:Label ID="lbBookqty" runat="server" Text="Label"></asp:Label>
                             <span id="ctl00_ContentPlaceHolder1_lblstock" style="margin: 0px; padding: 0px; border: 0px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: inherit; line-height: 18px; font-family: Proximanova; font-size: 14px; vertical-align: baseline; color: rgb(38, 46, 63); letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;"><span class="Apple-converted-space">&nbsp;</span>copies available</span><span style="color: rgb(38, 46, 63); font-family: Proximanova; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none;"><span class="Apple-converted-space">&nbsp;</span></span><br style="color: rgb(38, 46, 63); font-family: Proximanova; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 18px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;" />
                             <span id="ctl00_ContentPlaceHolder1_lblStoackStatusContent" style="margin: 0px; padding: 0px; border: 0px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: inherit; line-height: 18px; font-family: Proximanova; font-size: 14px; vertical-align: baseline; color: rgb(38, 46, 63); letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">Usually delivered within 4-7 working days.<br />
-                            <asp:TextBox ID="TextBox1" runat="server" Height="25px" Width="51px"></asp:TextBox>
-                            <asp:Button ID="btnAddtocart" runat="server" Height="30px" Text="Add To Cart" Width="94px" />
+                            <asp:TextBox ID="tbQuantity" runat="server" Height="25px" Width="51px"></asp:TextBox>
+                            <asp:Button ID="btnAddtocart" runat="server" Height="30px" Text="Add To Cart" Width="104px" OnClick="btnAddtocart_Click" />
                             </span></td>
                     </tr>
                 </table>

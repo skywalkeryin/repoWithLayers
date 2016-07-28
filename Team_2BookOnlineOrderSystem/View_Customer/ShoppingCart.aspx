@@ -18,8 +18,10 @@
         }
         .auto-style5 {
             position: absolute;
-            left: 536px;
-            top: 969px;
+
+            left: 662px;
+            top: 1216px;
+
             width: 82px;
             height: 24px;
         }
@@ -32,7 +34,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <table class="auto-style1">
+     f<table class="auto-style1">
         <tr>
             <td class="auto-style3"><div id="Div1" runat="server" class="ContentHead">
                 <p>
@@ -50,11 +52,7 @@
                 </div>
     
     <div>
-        <strong>
-            <asp:Label ID="LabelTotalText" runat="server" Text="Order Total: "></asp:Label>
-            <asp:Label ID="lblTotal" runat="server" EnableViewState="false"></asp:Label>
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        </strong> 
+
     </div>
                 <strong>
                <asp:GridView ID="CartList" runat="server" AutoGenerateColumns="False" ShowFooter="True" GridLines="Vertical" CellPadding="4"
@@ -88,16 +86,21 @@
         </Columns>    
     </asp:GridView>
     
-        <asp:Button ID="btnRemove" runat="server" CssClass="auto-style5" Text="Remove" OnClick="btnRemove_Click" />
+
+        <asp:Button ID="btnRemove" runat="server" CssClass="auto-style5" Text="Update" OnClick="btnRemove_Click" />
+            <asp:Label ID="LabelTotalText0" runat="server" Text="Order Total: "></asp:Label>
+            <asp:Label ID="lblTotal1" runat="server" EnableViewState="false"></asp:Label>
+    
+
         </strong>
-    <br />
+        <br />
              
                
             </td>
         </tr>
         <tr>
             <td class="auto-style6">
-                <asp:Button ID="btnConfirm" runat="server" Text="Confirm" Width="72px" OnClick="btnConfirm_Click" />
+                <asp:Button ID="btnConfirm" runat="server" Text="Check Out" Width="92px" OnClick="btnConfirm_Click" />
             </td>
         </tr>
         <tr>

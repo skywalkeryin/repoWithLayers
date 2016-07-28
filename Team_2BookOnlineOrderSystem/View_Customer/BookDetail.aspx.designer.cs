@@ -103,6 +103,15 @@ namespace Team_2BookOnlineOrderSystem {
         protected global::System.Web.UI.WebControls.Label lbDescription;
         
         /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
         /// tbDescription control.
         /// </summary>
         /// <remarks>
@@ -166,13 +175,13 @@ namespace Team_2BookOnlineOrderSystem {
         protected global::System.Web.UI.WebControls.Label lbBookqty;
         
         /// <summary>
-        /// TextBox1 control.
+        /// tbQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox tbQuantity;
         
         /// <summary>
         /// btnAddtocart control.
