@@ -7,14 +7,18 @@ using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Data;
 using WebDL;
+using System.Collections;
 
 namespace Team_2BookOnlineOrderSystem
 {
     public partial class Payment : System.Web.UI.Page
     {
         Table t = new Table();
-        int orderID, orderDetailID;
-        int[] orderDetailList = new int[] { };
+        int orderID;
+        
+        ArrayList odIDList = new ArrayList();
+        // Replace Session["userId"]
+        int userId = 4;
       
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,11 +38,12 @@ namespace Team_2BookOnlineOrderSystem
         {
             createOrderRecord();
             createOrderDetailRecord(orderID);
-            createPaymentRecord(orderDetailList);
-            createDeliveryRecord();
-            SaveSession();
-
-            Response.Redirect("ConfirmBooking.aspx");
+            Label3.Text = odIDList[0].ToString();
+            createPaymentRecord(odIDList);
+          
+     //       createDeliveryRecord();
+     //       SaveSession();
+       //     Response.Redirect("ConfirmBooking.aspx");
         }
 
         private void loadPaymentList()
@@ -70,8 +75,8 @@ namespace Team_2BookOnlineOrderSystem
             order order = new order();
             using (WebDL.Team2_BookDBEntities bke = new Team2_BookDBEntities())
             {
-                
-                order.userID = 3;
+
+                order.userID = userId;
                 order.ordersDate = DateTime.Now.Date;
                 order.ordersDescription = "";
                 bke.orders.Add(order);
@@ -81,14 +86,14 @@ namespace Team_2BookOnlineOrderSystem
             return orderID;
         }
 
-        private int[] createOrderDetailRecord(int orderId)
+        private ArrayList createOrderDetailRecord(int orderId)
         {
             ordersDetail odl = new ordersDetail();
            
             using (WebDL.Team2_BookDBEntities bke = new Team2_BookDBEntities())
             {
                 WebDL.shoppingCart sc = new shoppingCart();
-                var data = from car in bke.shoppingCarts where car.userID == 3 select car;
+                var data = from car in bke.shoppingCarts where car.userID == userId select car;
                 List<WebDL.shoppingCart> scl = data.ToList();
 
                 for (int i = 0; i < scl.Count; i++)
@@ -99,34 +104,38 @@ namespace Team_2BookOnlineOrderSystem
                     odl.ordersDetailDescription = "";
                     bke.ordersDetails.Add(odl);
                     bke.SaveChanges();
-                    orderDetailList[i] = odl.ordersDetailID;
+
+                   // var odId = (from r in bke.ordersDetails select r).Last();
+                    //int lastID = bke.ordersDetails.AsEnumerable().Last().ordersDetailID;
+                    odIDList[i] = odl.ordersDetailID;
                 }                
             }
 
-            return orderDetailList;
+            return odIDList;
            
                 
             
         }
 
-        private void createPaymentRecord(int [] orderDetailIDList)
+        private void createPaymentRecord(ArrayList alOrderDetailID)
         {
             using (WebDL.Team2_BookDBEntities bke = new WebDL.Team2_BookDBEntities())
             {
                 payment addPayment = new payment();
 
-                for (int i = 0; i < orderDetailIDList.Count(); i++)
+                for (int i = 0; i < alOrderDetailID.Count ; i++)
                 {
-                    addPayment.userID = 5;
-                    addPayment.ordersDetailID = orderDetailIDList[i];
+                    addPayment.userID = userId;
+                    addPayment.ordersDetailID = Convert.ToInt32(alOrderDetailID[i]);
                     addPayment.paymentStatus = "pending";
                     addPayment.paymentAmount = Convert.ToDouble(lbTotal.Text);
                     addPayment.paymentDescription = "";
                     addPayment.paymentMode = rblPaymentMode.SelectedValue.ToString();
                     addPayment.paymentDate = DateTime.Now.Date;
                     bke.payments.Add(addPayment);
-                    bke.SaveChanges();                  
-                }               
+                    bke.SaveChanges();               
+                                        
+                }
             }
         }
 
@@ -135,8 +144,8 @@ namespace Team_2BookOnlineOrderSystem
             using (WebDL.Team2_BookDBEntities bke = new Team2_BookDBEntities())
             {
                 delivery deli = new delivery();
-                deli.userID = 4;
-                deli.ordersID = 2;
+                deli.userID = userId;
+                deli.ordersID = orderID;
                 deli.deliveryDate = Convert.ToDateTime(txtDeliveryDate.Text);              
                 deli.deliveryStatus = "pending";
                 deli.deliveryAddress = lbDeliveryAddress.Text;
@@ -149,29 +158,12 @@ namespace Team_2BookOnlineOrderSystem
             
         }
 
-        private void oldTablePopulation()
-        {
-            DataTable dt = new DataTable();
-
-
-
-            Table t = new Table();
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                TableRow r = new TableRow();
-                TableCell c = new TableCell();
-                c.Text = dt.Rows[i][0].ToString();
-                r.Cells.Add(c);
-                t.Rows.Add(r);
-            }
-            PlaceHolder1.Controls.Add(t);
-        }
 
         private Table loadPaymentTable()
         {
             using (WebDL.Team2_BookDBEntities bke = new WebDL.Team2_BookDBEntities())
             {
-                var data = from sc in bke.shoppingCarts where sc.userID == 4 select sc;
+                var data = from sc in bke.shoppingCarts where sc.userID == userId select sc;
                 List<shoppingCart> scs = data.ToList();
 
                 foreach (shoppingCart s in scs)
@@ -204,7 +196,7 @@ namespace Team_2BookOnlineOrderSystem
                
 
                //int  id =bke.users.Find(Session.["userId"]);
-                var data = from ur in bke.users where ur.userID == 4 select ur;
+                var data = from ur in bke.users where ur.userID == userId select ur;
                 WebDL.user user = data.First();
                 lbCustomerName.Text= user.userName;
                 lbDeliveryAddress.Text = user.userAddress;
@@ -222,7 +214,16 @@ namespace Team_2BookOnlineOrderSystem
 
         private void removeShoppingCart()
         {
-
+            using (WebDL.Team2_BookDBEntities bke = new Team2_BookDBEntities())
+            {
+                var sc = from f in bke.shoppingCarts where f.userID == userId select f;
+                if (sc!=null)
+                {
+                    bke.shoppingCarts.RemoveRange(sc);
+                    bke.SaveChanges();
+                   
+                }
+            }
 
 
         }
