@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Team2_BookDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Team2_BookDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="category">
           <Key>
             <PropertyRef Name="categoryID" />
@@ -55,6 +55,7 @@
           <Property Name="paymentStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="paymentAmount" Type="float" Nullable="false" />
           <Property Name="paymentDescription" Type="nvarchar" MaxLength="50" />
+          <Property Name="paymentAccount" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -288,8 +289,7 @@
             <End Role="user" EntitySet="user" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Team2_BookDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -354,6 +354,7 @@
           <Property Name="paymentDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ordersDetail" Relationship="Self.FK_payment_ordersDetailID" FromRole="payment" ToRole="ordersDetail" />
           <NavigationProperty Name="user" Relationship="Self.FK_payment_userID" FromRole="payment" ToRole="user" />
+          <Property Name="paymentAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -649,6 +650,7 @@
           <EntitySetMapping Name="payments">
             <EntityTypeMapping TypeName="Team2_BookDBModel.payment">
               <MappingFragment StoreEntitySet="payment">
+                <ScalarProperty Name="paymentAccount" ColumnName="paymentAccount" />
                 <ScalarProperty Name="paymentID" ColumnName="paymentID" />
                 <ScalarProperty Name="userID" ColumnName="userID" />
                 <ScalarProperty Name="ordersDetailID" ColumnName="ordersDetailID" />
