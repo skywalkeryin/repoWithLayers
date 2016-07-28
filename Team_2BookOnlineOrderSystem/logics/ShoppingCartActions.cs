@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Team_2BookOnlineOrderSystem.Models;
 using WebDL;
+
 
 namespace Team_2BookOnlineOrderSystem.logics
 {
@@ -19,20 +21,63 @@ namespace Team_2BookOnlineOrderSystem.logics
         }
         public string GetCatrId()
         {
-            if (HttpContext.Current.Session["userID"] == null)
+            if (HttpContext.Current.Session["userName"] == null)
             {
                 if (!string.IsNullOrWhiteSpace(HttpContext.Current.User.Identity.Name))
                 {
-                    HttpContext.Current.Session["userID"] = HttpContext.Current.User.Identity.Name;
+                    HttpContext.Current.Session["userName"] = HttpContext.Current.User.Identity.Name;
                 }
                 else
                 {
                     // Generate a new random GUID using System.Guid class.     
                     Guid tempCartId = Guid.NewGuid();
-                    HttpContext.Current.Session["userID"] = tempCartId.ToString();
+                    HttpContext.Current.Session["userName"] = tempCartId.ToString();
                 }
             }
-            return HttpContext.Current.Session["userID"].ToString();
+            return HttpContext.Current.Session["userName"].ToString();
+        }
+        public string getProductName()
+        {
+            
+               return HttpContext.Current.Session ["productName"].ToString();
+
+        }
+
+        public void AddToCart(int  id)
+        {
+            // Retrieve the product from the database.           
+            string  ShoppingCartId = GetCatrId();
+            var user = from u in DB.users where u.userName == ShoppingCartId select u;
+            WebDL.user userdata = user.FirstOrDefault();
+             var cartItem = DB.shoppingCarts.FirstOrDefault(
+              c => c.user.userName == ShoppingCartId
+              && c.productID == id);
+           
+            if (cartItem == null)
+            {
+                // Create a new cart item if no cart item exists.  
+                cartItem = new shoppingCart
+                {
+                    productID = id,
+                    quantity = 1,
+                    userID = userdata.userID,
+                    shoppingCartExpiredDate = DateTime.Now.AddDays(7),
+                    user = DB.users.SingleOrDefault(u => u.userID == userdata.userID),
+                    product = DB.products.SingleOrDefault(p => p.productID == id)
+
+
+                };
+                
+                DB.shoppingCarts.Add(cartItem);
+            
+            }
+            else
+            {
+                // If the item does exist in the cart,                  
+                // then add one to the quantity.                 
+                cartItem.quantity++;
+            }
+            DB.SaveChanges();
         }
         public List<shoppingCart> CartItems()
         {
