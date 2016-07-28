@@ -13,20 +13,21 @@ namespace Team_2BookOnlineOrderSystem
 {
     public partial class Payment : System.Web.UI.Page
     {
+        string userName;
         Table t = new Table();
-        int orderID;
-        
+        int orderID;       
         ArrayList odIDList = new ArrayList();
-        // Replace Session["userId"]
-        int userId = 4;
+         int userId ;
       
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            loadUserId();
             loadCogiggnee();
             loadPaymentTable();
             PlaceHolder1.Controls.Add(t);
             loadPaymentList();
-
+            
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
@@ -240,6 +241,18 @@ namespace Team_2BookOnlineOrderSystem
                 }
             }
 
+
+        }
+
+        private void loadUserId()
+        {
+            userName = Session["userName"].ToString();
+            using (WebDL.Team2_BookDBEntities  bke = new Team2_BookDBEntities())
+            {
+                WebDL.user user = new user();
+                var data = from u in bke.users where u.userName == userName select u;
+                userId = data.FirstOrDefault().userID;
+            }
 
         }
     }

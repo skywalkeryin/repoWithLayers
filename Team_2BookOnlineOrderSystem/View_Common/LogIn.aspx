@@ -15,7 +15,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="main">
-    <h1><b>Log In | </b><a href="/Member/CreateMember.aspx" class="LoginBox-tab"> Create New Account</a></h1>   
+    <h1><b>Log In | </b><a href="/View_Customer/CreateMember.aspx" class="LoginBox-tab"> Create New Account</a></h1>   
         <div class="form-main">
             <div class="form-left">
                 <span>Email:</span>
@@ -42,7 +42,7 @@
         </div>
          <div class="form-main">            
             <div class="form-right">
-                <asp:Label ID="lblForget" runat="server" ><a href="#">Forget Password</a></asp:Label>
+                <asp:Label ID="lblForget" runat="server" ><a href="/View_Customer/forgetPassword.aspx">Forget Password</a></asp:Label>
             </div>
         </div>
 

@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View_Master/CustomerMasterPage.Master" AutoEventWireup="true" CodeBehind="BooksList.aspx.cs" Inherits="Team_2BookOnlineOrderSystem.View_Customer.BooksList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View_Master/CustomerMasterPage.Master" AutoEventWireup="true" CodeBehind="BooksList.aspx.cs" Inherits="Team_2BookOnlineOrderSystem.View_Customer.BooksList"  EnableEventValidation="false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
      <h1 class="title">Book List</h1>
-<p class="title">
-    <asp:Label ID="lbTest" runat="server" Text="Label"></asp:Label>
+<p class="title" style="margin-left: 80px">
+     <asp:Label ID="lbMsg" runat="server" ForeColor="Red"></asp:Label>
 </p>
      <table class="auto-style3">
          <tr>
@@ -20,6 +20,7 @@
              </td>
              <td class="auto-style6">
                  <asp:TextBox ID="txtSearch" runat="server" Width="153px"></asp:TextBox>
+                
              </td>
              <td>
                  <asp:Button ID="Button1" runat="server" Text="Search" Width="93px" Height="26px" OnClick="Button1_Click" />
@@ -30,7 +31,6 @@
 
        <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     <asp:Label ID="lbMsg" runat="server" Text="Label"></asp:Label>
      <br />
 
 
@@ -66,8 +66,9 @@
                            </td>
                        </tr>
                        <tr>
-                           <td colspan="2">                              
-                                <asp:Button ID="btnAddToCart" runat="server" Text="Add To Cart"  />
+                           <td colspan="2"> 
+                               <asp:Button ID="Button2" Text="Detail" runat="server" Width="93px" Height="26px" OnClick="Button2_Click" CssClass='<%# Eval("productName") %>' />                             
+                                <asp:Button ID="btnAddToCart" runat="server" Text="Add To Cart" CssClass='<%# Eval("productName") %>' OnClick="btnAddToCart_Click"  />
 
                            </td>
                        </tr>

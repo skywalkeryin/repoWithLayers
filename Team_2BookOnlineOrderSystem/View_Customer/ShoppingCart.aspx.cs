@@ -16,7 +16,7 @@ namespace Team_2BookOnlineOrderSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           Session["userID"] = "Preethi";
+           //Session["userName"] = "Preethi";
            
             using (ShoppingCartActions Action = new ShoppingCartActions()) 
             {
@@ -24,11 +24,11 @@ namespace Team_2BookOnlineOrderSystem
                 carTotal = Action.GetTotal();
                 if(carTotal>0)
                 {
-                    lblTotal.Text = String.Format("{0:c}", carTotal);
+                    lblTotal1.Text = String.Format("{0:c}", carTotal);
                 }
                 else
                 {
-                    lblTotal.Text = "";
+                    lblTotal1.Text = "";
                     ShoppingCartTitle.InnerText = "Shoping Cart is Empty";
                     btnRemove.Visible = false;
                     btnConfirm.Visible = false;
@@ -71,8 +71,8 @@ namespace Team_2BookOnlineOrderSystem
                 }
                 usersShoppingCart.UpdateShoppingCartDatabase(cartId, cartUpdates);
                 CartList.DataBind();
-                lblTotal.Text = String.Format("{0:c}", usersShoppingCart.GetTotal());
-                Label1.Text = "yin";
+                lblTotal1.Text = String.Format("{0:c}", usersShoppingCart.GetTotal());
+                
                 return usersShoppingCart.CartItems();
           
             }
@@ -103,7 +103,7 @@ namespace Team_2BookOnlineOrderSystem
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Payment.aspx");
         }
 
 
