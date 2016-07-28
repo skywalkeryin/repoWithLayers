@@ -48,6 +48,36 @@ namespace Team_2BookOnlineOrderSystem.View_Customer
 
         }
 
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string productName = btn.CssClass;
+            Session["productName"] = productName;
+            Response.Redirect("BookDetail.aspx");
+
+        }
+
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string productName = btn.CssClass;
+
+            using (WebDL.Team2_BookDBEntities context = new WebDL.Team2_BookDBEntities())
+            {
+                var data = from p in context.products where p.productName == productName select p;
+                WebDL.product pToBeAdded = data.First();
+                WebDL.shoppingCart sc = new WebDL.shoppingCart();
+                sc.product = pToBeAdded;
+                sc.quantity = 1;
+                //sc.userID = Session["userID"] ;
+                sc.userID = 5;
+                sc.shoppingCartExpiredDate = DateTime.Now.Date;
+                context.shoppingCarts.Add(sc);
+                context.SaveChanges();
+            }
+
+        }
+
         private void searchByCategoy(string selectedCategory)
         {
             using (WebDL.Team2_BookDBEntities context = new WebDL.Team2_BookDBEntities())
@@ -81,6 +111,8 @@ namespace Team_2BookOnlineOrderSystem.View_Customer
 
             }
         }
+
+
 
 
 
