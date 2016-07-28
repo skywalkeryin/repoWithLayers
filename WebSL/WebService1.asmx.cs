@@ -22,5 +22,10 @@ namespace WebSL
         {
             return "Hello World";
         }
+       // [WebMethod]
+      //  public decimal GetTotal()
+      //  {
+      //
+      //  }
     }
 }

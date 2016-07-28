@@ -319,6 +319,10 @@
       <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
     </Compile>
 
+
+
+    <Compile Include="logics\ShoppingCartActions.cs" />
+
     <Compile Include="Models\CartItem.cs" />
 
     <Compile Include="Home.aspx.cs">
