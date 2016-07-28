@@ -4,6 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
      <h1 class="title">Book List</h1>
+<p class="title">
+    <asp:Label ID="lbTest" runat="server" Text="Label"></asp:Label>
+</p>
      <table class="auto-style3">
          <tr>
              <td class="auto-style4">
@@ -19,14 +22,21 @@
                  <asp:TextBox ID="txtSearch" runat="server" Width="153px"></asp:TextBox>
              </td>
              <td>
-                 <asp:Button ID="Button1" runat="server" Text="Search" Width="93px" Height="26px" />
+                 <asp:Button ID="Button1" runat="server" Text="Search" Width="93px" Height="26px" OnClick="Button1_Click" />
              </td>
          </tr>
      </table>
 
 
+       <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <asp:Label ID="lbMsg" runat="server" Text="Label"></asp:Label>
+     <br />
+
+
        <p class="title">
-           <asp:DataList ID="DataList1" runat="server" RepeatColumns="3" OnItemCommand="DataListCake_ItemCommand" Width="1318px">
+           <%--OnItemCommand="DataListCake_ItemCommand"--%>
+           <asp:DataList ID="DataList1" runat="server" RepeatColumns="3"  Width="1318px">
                <ItemTemplate>
                    <table class="auto-style1">
                        <tr>
