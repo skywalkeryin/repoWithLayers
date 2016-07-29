@@ -25,7 +25,7 @@ namespace Team_2BookOnlineOrderSystem.View_Common
                     if (userLogIn.roleID == 1)
                     {
                         Session["userName"] = userLogIn.userName;
-                        Response.Redirect("/View_Admin/ViewAllBooks.aspx");
+                        Response.Redirect("/View_Admin/AdminHome.aspx");
                     }
                     else
                     {

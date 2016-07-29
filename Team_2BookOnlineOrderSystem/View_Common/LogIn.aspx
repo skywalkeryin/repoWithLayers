@@ -1,38 +1,35 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View_Master/CustomerMasterPage.Master" AutoEventWireup="true" CodeBehind="LogIn.aspx.cs" Inherits="Team_2BookOnlineOrderSystem.View_Common.LogIn" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <style type="text/css">
-        .auto-style1 {
-            width: 85%;
-            height: 160px;
-        }
-        .auto-style2 {
-            width: 192px;
-        }
         .btn1 {
             margin-left: 80px;
         }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="main">
-    <h1><b>Log In | </b><a href="/View_Customer/CreateMember.aspx" class="LoginBox-tab"> Create New Account</a></h1>   
+   
+      <div class="login-main">
+         <h3><b>Log In | <a href="/View_Customer/CreateMember.aspx" class="LoginBox-tab"> Create New Account</a></b></h3> 
+       
         <div class="form-main">
-            <div class="form-left">
+            <div class="logIn-form-left">
                 <span>Email:</span>
             </div>
 
             <div class="form-right">
                 <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Enter a valid Email" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
             </div>
         </div>
 
         <div class="form-main">
-            <div class="form-left">
+            <div class="logIn-form-left">
                 <span>Password:</span>
             </div>
 
             <div class="form-right">
                 <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+                   <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="Enter password" ForeColor="Red" ></asp:RegularExpressionValidator>--%>
             </div>
         </div>
         <div class="form-main">            
@@ -47,7 +44,7 @@
         </div>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <div class="btn1"><asp:Button ID="btnLogIn" runat="server" Text="Log In" OnClick="btnLogIn_Click" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
+   <div class="btn1"><asp:Button ID="btnLogIn" runat="server" Text="Log In" OnClick="btnLogIn_Click" Height="39px" Width="69px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" OnClientClick="Page_ValidationActive = false;" height="39px" width="69px" />
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div>
 
     </div>

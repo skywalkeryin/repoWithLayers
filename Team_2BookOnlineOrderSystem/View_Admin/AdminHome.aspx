@@ -1,8 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View_Master/CustomerMasterPage.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="Team_2BookOnlineOrderSystem.Home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View_Master/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="AdminHome.aspx.cs" Inherits="Team_2BookOnlineOrderSystem.View_Admin.AdminHome" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>ABC Book Online Shop</h2>
+    
+             <h2>ABC Book Online Shop</h2>
     <p style="margin-left: 40px">
         We offer you various  titles across categories such as Children’s Books, Business & Economics, Indian Writing and Literature & Fiction.
 
@@ -40,5 +41,7 @@ When you  can easily secure that book you’ve always wanted to read, as the</p>
     </p>
     <p style="margin-left: 120px">
         &nbsp;</p>
-    <h2> Thanks you </h2>
+    <h2> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thanks you </h2>
+
+         
 </asp:Content>

@@ -4,9 +4,6 @@
         .auto-style1 {
             width: 100%;
         }
-        .auto-style2 {
-            width: 118px;
-        }
         .auto-style3 {
             width: 176px;
         }
@@ -16,15 +13,38 @@
         .auto-style5 {
             width: 326px;
         }
-    </style>
+        .auto-style6 {
+            width: 233px;
+            height: 23px;
+        }
+        .auto-style7 {
+            width: 419px;
+            height: 23px;
+        }
+        .auto-style8 {
+            width: 282px;
+            height: 23px;
+        }
+        .nav-justified {
+            margin-right: 207px;
+            width: 1051px;
+        }
+        .auto-style12 {
+            width: 178px;
+            height: 154px;
+        }
+        .auto-style13 {
+            width: 442px;
+            height: 154px;
+        }
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table class="nav-justified">
         <tr>
-            <td style="width: 233px">Congignee</td>
-            <td style="width: 419px">Delivery Address</td>
-            <td style="width: 282px">Contact Number</td>
-            <td>&nbsp;</td>
+            <td class="auto-style6">Congignee</td>
+            <td class="auto-style7">Delivery Address</td>
+            <td class="auto-style8">Contact Number</td>
         </tr>
         <tr>
             <td style="width: 233px; height: 22px">
@@ -36,45 +56,29 @@
             <td style="width: 282px; height: 22px">
                 <asp:Label ID="lbContactNumber" runat="server" Text="ContactNumber"></asp:Label>
             </td>
-            <td style="height: 22px">
-                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Edit</asp:LinkButton>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3">&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
+        </tr>       
     </table>
     <table class="auto-style1">
         <tr>
-            <td class="auto-style2">Delivery Date:</td>
-            <td class="auto-style3">
-                <asp:TextBox ID="txtDeliveryDate" runat="server" TextMode="Date" Width="155px"></asp:TextBox>
-            </td>
-            <td class="auto-style4">&nbsp;</td>
-            <td class="auto-style5">&nbsp;</td>
-            <td>&nbsp;</td>
+            <td  >Delivery Date:</td>            
+            <td class="auto-style4">
+                <asp:TextBox ID="txtDeliveryDate" runat="server" TextMode="Date" style="margin-left: 0px" ></asp:TextBox>
+            </td>          
         </tr>
     </table>
     <br />
     <br />
     <table class="nav-justified">
         <tr>
-            <td style="width: 234px">Payment Method</td>
-            <td style="width: 442px">&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td style="width: 234px">&nbsp;</td>
-            <td style="width: 442px">
+            <td class="auto-style12">Payment Method</td>
+            <td class="auto-style13">
                 <asp:RadioButtonList ID="rblPaymentMode" runat="server">
                     <asp:ListItem Selected="True">Cash</asp:ListItem>
                     <asp:ListItem>Visa</asp:ListItem>
                     <asp:ListItem>Master</asp:ListItem>
                 </asp:RadioButtonList>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
+            </td>           
+        </tr>      
     </table>
     <br />
     <asp:PlaceHolder ID="PlaceHolder1" runat="server">
@@ -103,7 +107,7 @@
                 <asp:Label ID="lbSubTotalSelect" runat="server" Text="Books selected, Subtotal Price:"></asp:Label>
             </td>
             <td style="height: 22px">
-                <asp:Label ID="lbSubTotal" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lbSubTotal" runat="server" ></asp:Label>
             </td>
         </tr>
         <tr>
@@ -111,7 +115,7 @@
                 <asp:Label ID="lable1" runat="server" Text="Delivery Cost:"></asp:Label>
             </td>
             <td style="height: 22px">
-                <asp:Label ID="lbDeliverCost" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lbDeliverCost" runat="server" ></asp:Label>
             </td>
         </tr>
         <tr>
@@ -119,15 +123,15 @@
                 <asp:Label ID="Label2" runat="server" Text="Total:"></asp:Label>
             </td>
             <td style="height: 22px">
-                <asp:Label ID="lbTotal" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lbTotal" runat="server" ></asp:Label>
             </td>
         </tr>
         <tr>
             <td class="text-right" style="width: 689px">
-                <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="Label3" runat="server"></asp:Label>
             </td>
             <td>
-                <asp:Button ID="btnConfirmPayment" runat="server" Text="Confirm Payment" OnClick="btnConfirmPayment_Click" />
+                <asp:Button ID="btnConfirmPayment" runat="server" Text="Confirm Payment" OnClick="btnConfirmPayment_Click" Height="46px" Width="145px" />
             </td>
         </tr>
     </table>

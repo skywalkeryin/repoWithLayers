@@ -1,77 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View_Master/CustomerMasterPage.Master" AutoEventWireup="true" CodeBehind="BookDetail.aspx.cs" Inherits="Team_2BookOnlineOrderSystem.BookDetail" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View_Master/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="AdminBookDetail.aspx.cs" Inherits="Team_2BookOnlineOrderSystem.View_Admin.AdminBookDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-     <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-        .auto-style2 {
-            width: 1328px;
-             height: 446px;
-         }
-        .auto-style3 {
-            width: 341px;
-            text-align: right;
-        }
-        .auto-style4 {
-            height: 20px;
-        }
-        .auto-style5 {
-            font-family: "Book Antiqua";
-            font-size: xx-large;
-        }
-        .auto-style6 {
-            text-align: left;
-        }
-        .auto-style7 {
-            height: 61px;
-        }
-        .auto-style9 {
-            height: 18px;
-        }
-        .auto-style10 {
-            width: 100%;
-            margin-top: 0px;
-        }
-        .auto-style11 {
-            width: 100%;
-            margin-right: 5px;
-        }
-        .auto-style12 {
-            width: 745px;
-        }
-        .auto-style13 {
-            width: 100%;
-            margin-right: 0px;
-            margin-top: 0px;
-            height: 0px;
-        }
-        .auto-style14 {
-            width: 921px;
-        }
-        .auto-style15 {
-            height: 69px;
-        }
-        .newStyle1 {
-            position: absolute;
-        }
-        .auto-style18 {
-            margin-left: 140px;
-        }
-        .auto-style19 {
-            position: absolute;
-            left: 159px;
-            top: 404px;
-        }
-        .auto-style21 {
-            position: absolute;
-            left: 161px;
-            top: 380px;
-            width: 594px;
-        }
-        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table class="auto-style1">
+<table class="auto-style1">
         <tr>
             <td>Home&gt;Book Details <br/></td>
             
@@ -193,3 +124,4 @@
         </tr>
     </table>
 </asp:Content>
+

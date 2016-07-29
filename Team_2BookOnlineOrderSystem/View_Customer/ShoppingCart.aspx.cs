@@ -98,12 +98,14 @@ namespace Team_2BookOnlineOrderSystem
         {
 
             UpdateCartItems();
+            Response.Redirect(Request.RawUrl);
 
         }
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
             Response.Redirect("Payment.aspx");
+          
         }
 
 

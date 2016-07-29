@@ -13,6 +13,15 @@ namespace Team_2BookOnlineOrderSystem {
     public partial class AdminEditBookProfile {
         
         /// <summary>
+        /// lblTry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTry;
+        
+        /// <summary>
         /// txtBookCode control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace Team_2BookOnlineOrderSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Find;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// txtCategory control.

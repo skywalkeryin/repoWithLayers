@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
  
-    <asp:Label ID="Label1" runat="server" ><h1>Delivery List</h1></asp:Label>    
+    <asp:Label ID="Label1" runat="server" ><h2>Delivery List</h2></asp:Label>    
       <div class="contentDeliverList">
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="deliveryId"
  OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit"

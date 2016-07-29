@@ -172,6 +172,8 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="View_Admin\AddNewBook.aspx" />
+    <Content Include="View_Admin\AdminBookDetail.aspx" />
+    <Content Include="View_Admin\AdminHome.aspx" />
     <Content Include="View_Admin\EditBookProfile.aspx" />
     <Content Include="View_Admin\EditProfile.aspx" />
     <Content Include="View_Admin\ViewAllBooks.aspx" />
@@ -315,13 +317,7 @@
     <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
       <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
     </Compile>
-
-
-
-
     <Compile Include="logics\ShoppingCartActions.cs" />
-
-
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -341,6 +337,20 @@
     </Compile>
     <Compile Include="View_Admin\AddNewBook.aspx.designer.cs">
       <DependentUpon>AddNewBook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View_Admin\AdminBookDetail.aspx.cs">
+      <DependentUpon>AdminBookDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View_Admin\AdminBookDetail.aspx.designer.cs">
+      <DependentUpon>AdminBookDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View_Admin\AdminHome.aspx.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View_Admin\AdminHome.aspx.designer.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="View_Admin\DeliveryList.cs" />
     <Compile Include="View_Admin\EditBookProfile.aspx.cs">

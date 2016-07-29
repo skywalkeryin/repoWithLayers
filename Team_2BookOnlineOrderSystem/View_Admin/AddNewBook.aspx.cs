@@ -15,7 +15,6 @@ namespace Team_2BookOnlineOrderSystem
         {
 
         }
-
         protected void btnCreate_Click(object sender, EventArgs e)
         {
             using (Team2_BookDBEntities cntx = new Team2_BookDBEntities())
@@ -29,17 +28,28 @@ namespace Team_2BookOnlineOrderSystem
                 createProduct.productDiscount = Convert.ToDouble(txtDiscount.Text);
                 createProduct.productDiscountedPrice = Convert.ToDouble(txtDisPrice.Text);
                 createProduct.productDescription = txtDesc.Text;
-                //createProduct.productID = 5;
                 if (fileUImage.HasFile)
                 {
                     string filename = Path.GetFileName(fileUImage.PostedFile.FileName);
                     fileUImage.SaveAs(Server.MapPath("~/Images") + filename);
                     createProduct.productImage = filename;
                 }
-                lblSuccessful.Text = "Success";
+
+                //var checkBookCode = cntx.products.Where(a => a.productCode.Equals(txtCodeNo)).FirstOrDefault();
+                //if (checkBookCode.productCode == null)
+                //{
                 cntx.products.Add(createProduct);
                 cntx.SaveChanges();
+                //}
+                //lblError.Text = "Product code can't be same.Try again.";
+
+                Response.Redirect("/View_Admin/AdminHome.aspx");
             }
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/View_Admin/AdminHome.aspx");
         }
     }
 }

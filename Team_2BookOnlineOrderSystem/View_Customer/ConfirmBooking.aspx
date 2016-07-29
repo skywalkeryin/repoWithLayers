@@ -78,25 +78,25 @@
         </tr>
         <tr>
             <td class="auto-style9">
-                <asp:Label ID="lbName" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lbName" runat="server" ></asp:Label>
             </td>
             <td class="auto-style10">
-                <asp:Label ID="lbAddress" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lbAddress" runat="server" ></asp:Label>
             </td>
             <td class="auto-style11">
-                <asp:Label ID="lbContactNumber" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lbContactNumber" runat="server" ></asp:Label>
             </td>
             <td class="auto-style12">
-                <asp:Label ID="lbPaymentMode" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lbPaymentMode" runat="server" ></asp:Label>
             </td>
             <td class="auto-style13">
-                <asp:Label ID="lbDate" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lbDate" runat="server" ></asp:Label>
             </td>
             <td class="auto-style16">
-                <asp:Label ID="lbDescription" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lbDescription" runat="server" ></asp:Label>
             </td>
             <td class="auto-style14">
-                <asp:Label ID="lbTotalAmount" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lbTotalAmount" runat="server" ></asp:Label>
             </td>
         </tr>
     </table>

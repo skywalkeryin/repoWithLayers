@@ -10,7 +10,7 @@
             <asp:Parameter DefaultValue="4" Name="userID" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ordersID" DataSourceID="SqlDataSource1" style="margin-right: 4px">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ordersID" DataSourceID="SqlDataSource1" style="margin-right: 4px" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" Height="179px" Width="1094px">
         <Columns>
             <asp:BoundField DataField="userID" HeaderText="User ID" SortExpression="userID" />
             <asp:BoundField DataField="ordersID" HeaderText="Order ID" InsertVisible="False" ReadOnly="True" SortExpression="ordersID" />
@@ -18,6 +18,15 @@
             <asp:BoundField DataField="ordersDescription" HeaderText="Description" SortExpression="ordersDescription" />
             <asp:CommandField HeaderText="Detail" SelectText="View" ShowHeader="True" ShowSelectButton="True" />
         </Columns>
+        <FooterStyle BackColor="White" ForeColor="#333333" />
+        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="White" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#F7F7F7" />
+        <SortedAscendingHeaderStyle BackColor="#487575" />
+        <SortedDescendingCellStyle BackColor="#E5E5E5" />
+        <SortedDescendingHeaderStyle BackColor="#275353" />
     </asp:GridView>
     <br />
     <br />
@@ -26,7 +35,7 @@
             <asp:ControlParameter ControlID="GridView1" Name="ordersID" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="ordersDetailID" DataSourceID="SqlDataSource2">
+    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="ordersDetailID" DataSourceID="SqlDataSource2" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" Height="158px" Width="1103px">
         <Columns>
             <asp:BoundField DataField="ordersID" HeaderText="Orders ID" SortExpression="ordersID" />
             <asp:BoundField DataField="ordersDetailID" HeaderText="OrdersDetail ID" InsertVisible="False" ReadOnly="True" SortExpression="ordersDetailID" />
@@ -34,6 +43,15 @@
             <asp:BoundField DataField="quantity" HeaderText="Quantity" SortExpression="quantity" />
             <asp:BoundField DataField="ordersDetailDescription" HeaderText="Description" SortExpression="ordersDetailDescription" />
         </Columns>
+        <FooterStyle BackColor="White" ForeColor="#333333" />
+        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#336666" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="White" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White" />
+        <SortedAscendingCellStyle BackColor="#F7F7F7" />
+        <SortedAscendingHeaderStyle BackColor="#487575" />
+        <SortedDescendingCellStyle BackColor="#E5E5E5" />
+        <SortedDescendingHeaderStyle BackColor="#275353" />
     </asp:GridView>
     <br />
 </asp:Content>

@@ -19,7 +19,7 @@
         .auto-style5 {
             position: absolute;
 
-            left: 662px;
+            left: 1959px;
             top: 1216px;
 
             width: 82px;
@@ -31,6 +31,7 @@
         .auto-style7 {
             height: 596px;
         }
+        .table-bordered {}
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -39,7 +40,6 @@
             <td class="auto-style3"><div id="Div1" runat="server" class="ContentHead">
                 <p>
                     Home>Shopping Cart</p>
-                <hr class="auto-style4"/>
                 </div></td>
         </tr>
         <tr>
@@ -57,7 +57,7 @@
                 <strong>
                <asp:GridView ID="CartList" runat="server" AutoGenerateColumns="False" ShowFooter="True" GridLines="Vertical" CellPadding="4"
         ItemType="WebDL.shoppingCart" SelectMethod="GetShoppingCartItems" 
-        CssClass="table table-striped table-bordered" >   
+        CssClass="table table-striped table-bordered" Height="614px" Width="1209px" >   
         <Columns>
         <asp:BoundField DataField="productID" HeaderText="ProductID" SortExpression="ProductID" />    
             <asp:TemplateField HeaderText="Cover">            
@@ -87,7 +87,6 @@
     </asp:GridView>
     
 
-        <asp:Button ID="btnRemove" runat="server" CssClass="auto-style5" Text="Update" OnClick="btnRemove_Click" />
             <asp:Label ID="LabelTotalText0" runat="server" Text="Order Total: "></asp:Label>
             <asp:Label ID="lblTotal1" runat="server" EnableViewState="false"></asp:Label>
     
@@ -100,7 +99,15 @@
         </tr>
         <tr>
             <td class="auto-style6">
-                <asp:Button ID="btnConfirm" runat="server" Text="Check Out" Width="92px" OnClick="btnConfirm_Click" />
+                <strong>
+    
+
+        <asp:Button ID="btnRemove" runat="server"  Text="Update" OnClick="btnRemove_Click" Height="49px" Width="81px" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+
+        </strong>
+                <asp:Button ID="btnConfirm" runat="server" Text="Check Out" Width="81px" OnClick="btnConfirm_Click" height="49px" />
             </td>
         </tr>
         <tr>

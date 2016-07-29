@@ -2,5 +2,24 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Please call for any help:999999999</h1>
+    <h3>If you have any help, please contact freely to us </h3>
+We would be delighted to hear from you!
+
+
+<br />
+ABC Books Online
+
+<br />
+10 Heng Mui Terrace,
+
+Kent Ridge,<br />
+&nbsp;Singapore-678267
+
+
+<br />
+Phone No:+65-123456
+
+<br />
+Email: abc@email.com 
+
 </asp:Content>

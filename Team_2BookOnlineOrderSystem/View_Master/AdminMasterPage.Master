@@ -10,11 +10,14 @@
     </asp:ContentPlaceHolder>
     <style type="text/css">
         .auto-style1 {
-            width: 90%;
-            height: 61px;
+            width: 83%;
+            height: 12px;
         }
         .auto-style2 {
-            height: 61px;
+            height: 12px;
+        }
+        .auto-style3 {
+            width: 83%;
         }
     </style>
 </head>
@@ -31,7 +34,7 @@
         <td class="auto-style2"></td>        
         </tr>
      <tr>
-        <td style="width:90%">&nbsp;</td>
+        <td class="auto-style3"></td>
         <td>          
 
             <% if (Session["userName"] == null) { %>
@@ -39,14 +42,14 @@
     <% } else { %>
         <asp:LinkButton ID="LinkButton1" runat="server" OnClick="linkLogout">Log Out</asp:LinkButton>
     <%} %></td>
-        <td>&nbsp;</td>        
+        <td></td>        
         </tr>
     </table> 
 
    <nav>
         <ul>
             <li><a href="/AdminHome.aspx">Home</a></li>
-            <li><a href="/View_Customer/BooksList.aspx">Books</a></li>             
+            <li><a href="/View_Admin/ViewAllBooks.aspx">Books</a></li>             
             <li><a href="/View_Admin/AddNewBook.aspx">Add New Books</a></li> 
             <li><a href="/View_Admin/EditBookProfile.aspx">Update Books</a></li> 
             <li><a href="/View_Admin/EditProfile.aspx">My Account</a></li>           
@@ -60,7 +63,8 @@
         <div class="content">
            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"> 
             </asp:ContentPlaceHolder>
-        </div>        
+
+
       
     <footer>
      <p> &copy; 2016 ABCBoooks.com. All rights reserved.</p>                 
@@ -69,5 +73,6 @@
         </div>
 </body>
 
+     
 
 </html>

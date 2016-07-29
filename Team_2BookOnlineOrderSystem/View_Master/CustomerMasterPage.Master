@@ -8,6 +8,19 @@
      <link href="~/Content/style.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style3 {
+            height: 3px;
+        }
+        .auto-style4 {
+            width: 83%;
+            height: 3px;
+        }
+        .auto-style5 {
+            width: 83%;
+            height: 22px;
+        }
+    </style>
 </head>
 <body>
     <div id="wrapper">
@@ -15,22 +28,22 @@
     
     <table>
     <tr>
-        <td class="auto-style1"><h1>ABCBook</h1></td>
-        <td class="auto-style2">Welcome
+        <td class="auto-style5"><h1>ABCBook</h1></td>
+        <td class="auto-style5">Welcome
             <asp:Label ID="lblWelcome" runat="server" ></asp:Label>
             </td>        
-        <td class="auto-style2"></td>        
+        <td class="auto-style5"></td>        
         </tr>
     <tr>
-        <td style="width:90%">&nbsp;</td>
-        <td>          
+        <td class="auto-style4"></td>
+        <td class="auto-style3">          
 
             <% if (Session["userName"] == null) { %>
         <a href="/View_Common/LogIn.aspx">Login/Create Member</a>
     <% } else { %>
         <asp:LinkButton ID="LinkButton1" runat="server" OnClick="linkLogout">Log Out</asp:LinkButton>
     <%} %></td>
-        <td>&nbsp;</td>        
+        <td class="auto-style3"></td>        
         </tr>
     </table> 
 
@@ -38,7 +51,7 @@
         <ul>
             <li><a href="/Home.aspx">Home</a></li>
             <li><a href="/View_Customer/BooksList.aspx">Books</a></li>
-            <li><a href="/View_Customer/OrderForm.aspx">Order</a></li>
+         <%--   <li><a href="/View_Customer/OrderForm.aspx">Order</a></li>--%>
             <li><a href="/View_Customer/OrderHistory.aspx">My History</a></li>
             <li><a href="/View_Customer/CustomerEditProfile.aspx">My Account</a></li>           
             <li><a href="/View_Customer/ShoppingCart.aspx">Shopping Cart</a></li>
@@ -53,8 +66,7 @@
            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">        
                         
             </asp:ContentPlaceHolder>
-        </div>        
-      
+
     <footer>
      <p> &copy; 2016 ABCBoooks.com. All rights reserved.</p>                 
     </footer>

@@ -34,6 +34,12 @@ namespace Team_2BookOnlineOrderSystem
                     txtDiscountedPrice.Text = findproduct.productDiscountedPrice.ToString();
 
                 }
+                else
+                {
+                    lblTry.Text = "There is no data for this code no. Try Again.";
+                    Response.Redirect("/View_Admin/EditBookProfile.aspx");
+                    ClearFields();
+                }
             }
 
         }
@@ -73,6 +79,11 @@ namespace Team_2BookOnlineOrderSystem
             txtQuantity.Text = string.Empty;
             txtDescription.Text = string.Empty;
 
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/View_Admin/ViewAllBooks.aspx");
         }
     }
 }

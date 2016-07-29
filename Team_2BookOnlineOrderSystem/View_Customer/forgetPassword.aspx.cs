@@ -18,7 +18,7 @@ namespace Team_2BookOnlineOrderSystem.View_Customer
         {
             string email = TextBox1.Text;
             TextBox1.Text = string.Empty;
-            lbMsg.Text = "A mail is sent to " + email + ", please reset your password.";
+            lbMsg.Text = "A mail is sent to " + email + ", please check to your email and reset your new password.";
 
         }
     }
